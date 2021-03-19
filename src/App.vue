@@ -1,60 +1,84 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+<div>
+	<app-top-bar></app-top-bar>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-md-5" style="height: 300px">
+				<app-data-container></app-data-container>
+				<app-file-selector></app-file-selector>
+			</div>
+			<div class="col-xs-12 col-sm-8 col-md-7" style="height: 700px">
+				<app-pdf-viewer></app-pdf-viewer>
+			</div>
+		</div>
+	</div>
+</div>
 </template>
 
 <script>
+	import DataContainer from './components/Data.vue'
+	import PdfViewer from './components/PDFViewer.vue'
+	import TopBar from './components/TopBar'
+	import FileSelector from './components/FileSelector'
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+	data() {
+		return {
+
+		}
+	},
+	methods: {
+
+	},
+	components: {
+		appDataContainer: DataContainer,
+		appPdfViewer: PdfViewer,
+		appTopBar: TopBar,
+		appFileSelector: FileSelector,
+	}
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	margin-top: 60px;
+}
+
+.testing {
+	background-color: lightblue;
+	border: red solid 2px;
 }
 
 h1, h2 {
-  font-weight: normal;
+  	font-weight: normal;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
 
 li {
-  display: inline-block;
-  margin: 0 10px;
+	display: inline-block;
+	margin: 0 10px;
 }
 
 a {
-  color: #42b983;
+  	color: #42b983;
 }
+
+.my-card {
+        width: 100%;
+		height: 100%;
+        display: inline-block;
+        margin: 2% 2%;
+		background-color: lightblue;
+		border: 2px solid green;
+		border-radius: 1.2rem;
+		padding: 20px 40px;
+    }
 </style>
