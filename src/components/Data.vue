@@ -1,18 +1,31 @@
 <template>
     <div class="my-card">
         DATOS GENERALES <br><br>
-        <p>Modelo <strong>IPXMMJ</strong></p>
-        <p>No de Serie: <strong>12345</strong></p>
-        <p>Año de fabricación: <strong>2011</strong></p>
-        <p>Fabricante: <strong>Siemens Energy</strong></p>
+        <p>Serial Number: <strong>{{ serialNumber }}</strong></p>
+        <p>Year of manufacturing: <strong>{{ year }}</strong></p>
+        <p>Factory: <strong>{{ factory }}</strong></p>
+        <p>Manufacturer: <strong>{{ manufacturer }}</strong></p>
+        <p>Material Number: <strong>{{ materialNumber }}</strong></p>
     </div>
 </template>
 
 <script>
 export default {
-    setup() {
-        
+    data() {
+        return {
+            test: 'Some Data',
+        }
     },
+    props: [
+        'serialNumber',
+        'year',
+        'factory',
+        'manufacturer',
+        'materialNumber',
+    ],
+    mounted: () => {
+        console.info('DataMounted')
+    }
 }
 </script>
 

@@ -8,9 +8,20 @@
 
 <script>
 export default {
-    setup() {
-        
+    data() {
+        return {
+            methods: {
+                
+            },
+            // mounted() {
+            //         console.info('Hello There')
+            //         let domEl = this.$el
+            //         PDFObject.embed('./../assets/docs/Formato_minutas.pdf',domEl)
+            //         console.error(domEl)
+            //     }
+        }
     },
+    
 }
 </script>
 

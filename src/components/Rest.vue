@@ -1,12 +1,17 @@
 <template>
 <div>
-	<!-- <app-main></app-main> -->
-	<router-view></router-view>
+	<app-top-bar></app-top-bar>
+    <div class="row">{{ $route.query.S }}</div>
+    <div class="row">{{ $route.query.D }}</div>
+	<footer>
+		<app-my-footer></app-my-footer>
+	</footer>
 </div>
 </template>
 
 <script>
-	import Main from './components/Main'
+	import TopBar from './TopBar'
+	import MyFooter from './Footer'
 export default {
 	data() {
 		return {
@@ -17,9 +22,12 @@ export default {
 		
 	},
 	components: {
-		appMain: Main,
+		appTopBar: TopBar,
+		appMyFooter: MyFooter,
 	},
-
+	mounted: () => {
+			console.warn('Ganto')
+		}
 }
 </script>
 
