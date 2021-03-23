@@ -1,8 +1,17 @@
 <template>
 <div>
 	<app-top-bar></app-top-bar>
-    <div class="row">{{ $route.query.S }}</div>
-    <div class="row">{{ $route.query.D }}</div>
+    <div class="resting">
+        <div class="loader">
+            <span class="color-primary"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <br>
+        <div class="my-message">
+            <span class="alert alert-info">Please Scan something to continue</span>
+        </div>
+    </div>
 	<footer>
 		<app-my-footer></app-my-footer>
 	</footer>
@@ -31,47 +40,59 @@ export default {
 }
 </script>
 
-<style>
-#app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
+<style scoped>
+
+.resting {
+    background-color: #44306B;
+    padding: 20% 10%;
+    margin: auto;
+    align-content: center;
 }
 
-.testing {
-	background-color: lightblue;
-	border: red solid 2px;
+.my-message {
+    margin: auto;
+    color: white;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+}
+/* CSS for animated bouncing loader. */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1, h2 {
-  	font-weight: normal;
+/* Loader circles */
+.loader > span {
+  background: #00D9C7;
+  border-radius: 50%;
+  margin: 5rem 0.5rem;
+  animation: bouncingLoader 0.6s infinite alternate;
 }
 
-ul {
-	list-style-type: none;
-	padding: 0;
+.loader > span:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-li {
-	display: inline-block;
-	margin: 0 10px;
+.loader > span:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
-a {
-  	color: #42b983;
+/* Define the animation called bouncingLoader. */
+@keyframes bouncingLoader {
+  from {
+    width: 0.1rem;
+    height: 0.1rem;
+    opacity: 1;
+    transform: translate3d(0);
+  }
+  to {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.1;
+    transform: translate3d(0, -1rem, 0);
+  }
 }
 
-.my-card {
-        width: 100%;
-		height: 100%;
-        display: inline-block;
-        margin: 2% 2%;
-		background-color: lightblue;
-		border: 2px solid green;
-		border-radius: 1.2rem;
-		padding: 20px 40px;
-    }
 </style>

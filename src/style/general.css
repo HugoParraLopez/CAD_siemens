@@ -1,0 +1,56 @@
+/* Colors */
+
+.color-primary {
+    background-color: #44306B;
+    outline-color: #231038;
+}
+
+.color-secondary {
+    background-color: #1B1534;
+    outline-color: #100C21;
+}
+
+.color-accent {
+    background-color: #00D9C7;
+    outline-color: #02bbab;
+}
+
+.color-accent:hover {
+    background-color: #00FFB9;
+    outline-color: #01ca95;
+}
+
+
+/* ------------------------ Buttons -------------------------*/
+
+.btn-se-primary {
+    background-color: #00D9C7;
+    outline-color: #02bbab;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-se-primary:hover {
+    background-color: #00FFB9;
+    outline-color: #01ca95;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-accent {
+    background-color: #00D9C7;
+    outline-color: #02bbab;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-accent:hover {
+    background-color: #00FFB9;
+    outline-color: #01ca95;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
