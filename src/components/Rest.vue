@@ -1,26 +1,22 @@
 <template>
 <div>
-	<app-top-bar></app-top-bar>
+	
     <div class="resting">
+        <div class="my-message">
+            <span class="alert alert-info">Por favor escanee un código <strong>QR</strong>\n válido para continuar</span>
+        </div>
         <div class="loader">
             <span class="color-primary"></span>
             <span></span>
             <span></span>
         </div>
         <br>
-        <div class="my-message">
-            <span class="alert alert-info">Please Scan something to continue</span>
-        </div>
     </div>
-	<footer>
-		<app-my-footer></app-my-footer>
-	</footer>
 </div>
 </template>
 
 <script>
-	import TopBar from './TopBar'
-	import MyFooter from './Footer'
+
 export default {
 	data() {
 		return {
@@ -29,10 +25,6 @@ export default {
 	},
 	methods: {
 		
-	},
-	components: {
-		appTopBar: TopBar,
-		appMyFooter: MyFooter,
 	},
 	mounted: () => {
 			console.warn('Ganto')
@@ -44,12 +36,14 @@ export default {
 
 .resting {
     background-color: #44306B;
-    padding: 20% 10%;
+    padding: 20% 5%;
     margin: auto;
     align-content: center;
 }
 
 .my-message {
+    width: 100%;
+    overflow: visible;
     margin: auto;
     color: white;
     align-content: center;

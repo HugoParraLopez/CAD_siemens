@@ -1,16 +1,32 @@
 <template>
     <div class="my-card">
-        <div class="pdf">
+        <!-- <div class="pdf">
             This is a PDF Viewer
-        </div>
+        </div> -->
+        <p>{{ currentPage }}/{{ pageCount }}</p>
+        <pdf
+            src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+            @num-pages="pageCount = $event"
+            @page-loaded="currentPage = $event"
+            ></pdf>
     </div>
 </template>
 
 <script>
+
+import pdf from 'vue-pdf'
+
 export default {
     data() {
         return {
-            methods: {
+            currentPage: 0,
+            pageCount: 0,
+        }
+    },
+    components: {
+        pdf
+    },
+     methods: {
                 
             },
             // mounted() {
@@ -19,9 +35,6 @@ export default {
             //         PDFObject.embed('./../assets/docs/Formato_minutas.pdf',domEl)
             //         console.error(domEl)
             //     }
-        }
-    },
-    
 }
 </script>
 
