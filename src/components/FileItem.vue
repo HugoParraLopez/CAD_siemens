@@ -2,7 +2,7 @@
     <b-col class="item-card">
         <b-row class="item-title">
             <b-col class="item-name">
-                <em>File</em>
+                <em>{{ fileName }}</em>
             </b-col>
             <b-col class="item-link">
                 <b-button size="sm" class="btn-accent">
@@ -11,8 +11,11 @@
             </b-col>
         </b-row>
         <b-row class="item-tags">
-            <b-badge variant="info">Info</b-badge>
-            <b-badge variant="dark">Dark</b-badge>
+            <b-badge
+                variant="info"
+                v-for="(item, index) in tags"
+                :key="index"
+                style="margin-right: 3px">{{item}}</b-badge>
         </b-row>
     </b-col>
 </template>
@@ -22,9 +25,13 @@ export default {
     setup() {
         
     },
-    props: [
-
-    ],
+    props: {
+        fileName: String,
+        tags: {
+            type: Array,
+            required: false,
+        },
+    },
 }
 </script>
 
@@ -36,6 +43,7 @@ export default {
 	border: 3px solid #00D9C7;
     align-items: center;
     margin: auto;
+    margin-top: 4%;
     padding-top: 2%;
 
 }

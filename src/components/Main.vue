@@ -1,7 +1,7 @@
 <template>
     <b-container class="main-data">
         <!-- <b-row class="row"> {{ itemData.serialNumber }}</b-row> -->
-        <b-row> {{ $route.query.D }}</b-row>
+        <!-- <b-row> {{ $route.query.D }}</b-row> -->
         <b-row >
             <b-col xs="12" sm="4" md="5">
                 <app-data-container v-bind="itemData"></app-data-container>
