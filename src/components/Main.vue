@@ -5,7 +5,7 @@
         <b-row >
             <b-col xs="12" sm="4" md="5">
                 <app-data-container v-bind="itemData"></app-data-container>
-                <app-file-selector></app-file-selector>
+                <app-file-selector v-bind="itemData"></app-file-selector>
             </b-col>
             <b-col xs="12" sm="8" md="7">
                 <app-display-pdf></app-display-pdf>
@@ -28,7 +28,8 @@ export default {
                 factory: this.$route.query.V,
                 manufacturer: this.$route.query.H,
                 materialNumber: this.$route.query.P,
-            }
+            },
+            pdfIndex: 0,
 		}
 	},
 	methods: {

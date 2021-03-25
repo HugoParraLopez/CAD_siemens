@@ -5,7 +5,8 @@
             <app-file-item 
                 v-for="(item, index) in availableFiles"
                 v-bind="item"
-                :key="index">
+                :key="index"
+                @selectedFile="selectFile(index,$event)">
             </app-file-item>
         </ul>
     </div>
@@ -16,20 +17,30 @@ import FileItem from './FileItem'
 export default {
     data() {
         return {
+            selectedIndex: 0,
             availableFiles: [
                 { 
                     fileName: 'Testing 1 page',
-                    tags: [`${this.serialNumber}`,'Material Number'],
+                    tags: [`${this.serialNumber}`,`${this.materialNumber}`],
+                    selected: false,
                 },
                 { 
                     fileName: 'Different file to test',
-                    tags: ['Year','Material Number'],
+                    tags: [`${this.serialNumber}`,`${this.materialNumber}`],
+                    selected: false,
                 },
                 { 
                     fileName: 'Option 3 for the pdf test',
-                    tags: ['Serial','Material Number'],
+                    tags: [`${this.serialNumber}`,`${this.materialNumber}`],
+                    selected: false,
                 },
             ]
+        }
+    },
+    methods: {
+        selectFile(index,event) {
+            this.selectedIndex = event ? index : 0
+            console.warn(this.selectedIndex)
         }
     },
     props: [

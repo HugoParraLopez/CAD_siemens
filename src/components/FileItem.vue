@@ -5,7 +5,10 @@
                 <em>{{ fileName }}</em>
             </b-col>
             <b-col class="item-link">
-                <b-button size="sm" class="btn-accent">
+                <b-button
+                    size="sm"
+                    class="btn-accent"
+                    @click="deployPdf">
                     <b-icon icon="eye-fill" aria-hidden="true"></b-icon> View
                 </b-button>
             </b-col>
@@ -31,6 +34,17 @@ export default {
             type: Array,
             required: false,
         },
+        selected: {
+            type: Boolean,
+            required: true
+        }
+    },
+    methods: {
+        deployPdf() {
+            this.selected = true
+            console.log('Deploying pdf: ', this.fileName, this.selected)
+            this.$emit('selectedFile', this.selected)
+        }
     },
 }
 </script>
