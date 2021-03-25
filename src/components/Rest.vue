@@ -3,10 +3,10 @@
 	
     <div class="resting">
         <div class="my-message">
-            <span class="alert alert-info">Por favor escanee un código <strong>QR</strong>\n válido para continuar</span>
+            <span class="alert alert-warning">{{ msg }}</span>
         </div>
         <div class="loader">
-            <span class="color-primary"></span>
+            <span></span>
             <span></span>
             <span></span>
         </div>
@@ -20,14 +20,14 @@
 export default {
 	data() {
 		return {
-
+            msg: 'Por favor escanee un codigo válido'
 		}
 	},
 	methods: {
 		
 	},
 	mounted: () => {
-			console.warn('Ganto')
+			console.warn('AYUMDAM')
 		}
 }
 </script>
@@ -35,10 +35,14 @@ export default {
 <style scoped>
 
 .resting {
-    background-color: #44306B;
     padding: 20% 5%;
     margin: auto;
     align-content: center;
+}
+@media only screen and (max-width: 600px) {
+    .resting {
+        padding: 35% 5%
+    }
 }
 
 .my-message {

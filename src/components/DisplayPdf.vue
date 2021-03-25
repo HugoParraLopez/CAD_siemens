@@ -5,7 +5,7 @@
         </div> -->
         <p>{{ currentPage }}/{{ pageCount }}</p>
         <pdf
-            src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+            src="https://gentle-castle-93152.herokuapp.com/https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
             @num-pages="pageCount = $event"
             @page-loaded="currentPage = $event"
             ></pdf>

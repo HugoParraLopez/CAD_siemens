@@ -2,6 +2,7 @@
 <div id="main-body">
 	<app-top-bar></app-top-bar>
 	<router-view></router-view>
+	<app-my-footer></app-my-footer>
 </div>
 </template>
 
@@ -54,11 +55,11 @@ a {
 }
 
 #main-body {
-	background: rgb(161,0,255);
-	background: -moz-radial-gradient(circle, rgba(161,0,255,1) 0%, rgba(0,19,154,1) 100%);
-	background: -webkit-radial-gradient(circle, rgba(161,0,255,1) 0%, rgba(0,19,154,1) 100%);
-	background: radial-gradient(circle, rgba(161,0,255,1) 0%, rgba(0,19,154,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a100ff",endColorstr="#00139a",GradientType=1);
+	babackground: rgb(38,8,98);
+background: -moz-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
+background: radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#260862",endColorstr="#38206a",GradientType=1);er: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c39a4",endColorstr="#38206a",GradientType=1);	
 }
 
 .my-card {
