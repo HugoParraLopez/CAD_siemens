@@ -55,7 +55,7 @@ a {
 }
 
 #main-body {
-	babackground: rgb(38,8,98);
+	background: rgb(38,8,98);
 background: -moz-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
 background: -webkit-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
 background: radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
@@ -64,12 +64,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#260862",endCo
 
 .my-card {
 	width: 100%;
-	height: 100%;
+	padding: 5% 1%;
 	display: inline-block;
-	margin: 2% 2%;
-	background-color: #dddddd;
-	border: 2px solid green;
+	margin: 4% 2%;
+	background-color: #e3e3e3;
+	border: 2px solid #00D9C7;
 	border-radius: 1.2rem;
 	padding: 20px 40px;
+	-webkit-box-shadow: 0px 0px 30px 1px rgba(128, 128, 128, 0.8);
+	-moz-box-shadow: 0px 0px 30px 1px rgba(128, 128, 128, 0.8);
+	box-shadow: 0px 0px 30px 1px rgba(128, 128, 128, 0.8);
     }
 </style>

@@ -1,15 +1,17 @@
 <template>
     <div class="my-card">
-        DATOS GENERALES <br><br>
+        <h2>DATOS GENERALES</h2> <br>
         <p>Serial Number: <strong>{{ serialNumber }}</strong></p>
         <p>Year of manufacturing: <strong>{{ year }}</strong></p>
         <p>Factory: <strong>{{ factory }}</strong></p>
         <p>Manufacturer: <strong>{{ manufacturer }}</strong></p>
         <p>Material Number: <strong>{{ materialNumber }}</strong></p>
+        
     </div>
 </template>
 
 <script>
+
 export default {
     data() {
         return {

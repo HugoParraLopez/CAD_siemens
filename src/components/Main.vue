@@ -1,20 +1,17 @@
 <template>
-<div>
-	
-	<div class="container">
-        <div class="row"> {{ itemData.serialNumber }}</div>
-        <div class="row"> {{ $route.query.D }}</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-4 col-md-5" >
-				<app-data-container v-bind="itemData"></app-data-container>
-				<app-file-selector></app-file-selector>
-			</div>
-			<div class="col-xs-12 col-sm-8 col-md-7">
-				<app-display-pdf></app-display-pdf>
-			</div>
-		</div>
-	</div>
-</div>
+    <b-container class="main-data">
+        <!-- <b-row class="row"> {{ itemData.serialNumber }}</b-row> -->
+        <b-row> {{ $route.query.D }}</b-row>
+        <b-row >
+            <b-col xs="12" sm="4" md="5">
+                <app-data-container v-bind="itemData"></app-data-container>
+                <app-file-selector></app-file-selector>
+            </b-col>
+            <b-col xs="12" sm="8" md="7">
+                <app-display-pdf></app-display-pdf>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>
@@ -50,5 +47,16 @@ export default {
 </script>
 
 <style>
-
+.main-data {
+    padding-top: 4%;
+    padding-bottom: 4%;
+    margin: auto;
+    align-content: center;
+}
+@media only screen and (max-width: 600px) {
+    .main-data {
+        padding-top: 10%;
+        padding-bottom: 7%;
+    }
+}
 </style>

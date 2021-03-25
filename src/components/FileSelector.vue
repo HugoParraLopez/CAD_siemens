@@ -1,6 +1,6 @@
 <template>
     <div class="my-card">
-        DOCUMENTOS <br><br>
+        <h3>DOCUMENTOS</h3> <br>
         <ul>
             <div class="alert alert-info">
                 <p class="file-tile">Garantias</p><button class="btn btn-success">Abrir</button>
@@ -11,14 +11,19 @@
             <div class="alert alert-info">
                 <p class="file-tile">Manual de usuario</p><button class="btn btn-success">Abrir</button>
             </div>
+            <app-file-item></app-file-item>
         </ul>
     </div>
 </template>
 
 <script>
+import FileItem from './FileItem'
 export default {
     setup() {
         
+    },
+    components: {
+        appFileItem: FileItem,
     },
 }
 </script>
