@@ -8,8 +8,9 @@
                 <b-button
                     size="sm"
                     class="btn-accent"
-                    @click="deployPdf">
-                    <b-icon icon="eye-fill" aria-hidden="true"></b-icon> View
+                    @click="deployPdf"
+                    href="#my-pdf-viewer">
+                    <b-icon icon="eye-fill" aria-hidden="true"></b-icon> Ver
                 </b-button>
             </b-col>
         </b-row>

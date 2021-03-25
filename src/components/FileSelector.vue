@@ -41,6 +41,7 @@ export default {
         selectFile(index,event) {
             this.selectedIndex = event ? index : 0
             console.warn(this.selectedIndex)
+            this.$emit('updatePdfIndex', this.selectedIndex)
         }
     },
     props: [
@@ -49,13 +50,8 @@ export default {
         'factory',
         'manufacturer',
         'materialNumber',
+        'pdfIndex',
     ],
-    afetMount() {
-        console.warn('MOUNTED FILES')
-        this.availableFile.forEach(i => {
-            i.tags = [this.serialNumber,this.materialNumber]
-        });
-    },
     components: {
         appFileItem: FileItem,
     },

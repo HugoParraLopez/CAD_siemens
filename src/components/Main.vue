@@ -5,10 +5,14 @@
         <b-row >
             <b-col xs="12" sm="4" md="5">
                 <app-data-container v-bind="itemData"></app-data-container>
-                <app-file-selector v-bind="itemData"></app-file-selector>
+                <app-file-selector
+                    v-bind="itemData"
+                    :pdfIndex="pdfIndex"
+                    @updatePdfIndex="pdfIndex = $event"
+                ></app-file-selector>
             </b-col>
             <b-col xs="12" sm="8" md="7">
-                <app-display-pdf></app-display-pdf>
+                <app-display-pdf :pdfIndex="pdfIndex"></app-display-pdf>
             </b-col>
         </b-row>
     </b-container>
