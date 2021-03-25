@@ -1,23 +1,33 @@
 <template>
-    <div class="my-nav">
-        <nav class="navbar navbar-expand-lg" style="background-color: #38206A">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <a class="navbar-brand nav-main-item" href="#">
-                <span id="logo"><siemens-logo/></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-            </div>
-            <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-            </ul>
-        </div>
-        </nav>
+    <div class="my-nav"  style="background-color: #38206A">
+        <b-navbar toggleable="lg" type="dark">
+            <b-navbar-brand class="brand-logo"><span id="logo"><siemens-logo/></span></b-navbar-brand>
+
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav class="ml-auto">
+                    <b-nav-item-dropdown right>
+                        <template #button-content>
+                            <b-icon icon="globe2"></b-icon> Idioma
+                        </template>
+                        <b-dropdown-item >EN</b-dropdown-item>
+                        <b-dropdown-item active>ES</b-dropdown-item>
+                        <b-dropdown-item >RU</b-dropdown-item>
+                        <b-dropdown-item >FA</b-dropdown-item>
+                    </b-nav-item-dropdown>
+
+                    <b-nav-item-dropdown right>
+                        <template #button-content>
+                            <b-icon icon="globe2"></b-icon> Tema                            
+                        </template>
+                        <b-dropdown-item disabled>SE Day</b-dropdown-item>
+                        <b-dropdown-item active>SE Dark</b-dropdown-item>
+                    </b-nav-item-dropdown>
+
+                </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>
     </div>
 </template>
 
@@ -36,8 +46,23 @@ export default {
 </script>
 
 <style>
-.nav-main-item {
-    display: inline-block;
+
+.my-nav {
+    padding-top: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .my-nav {
+        padding-top: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 20px;
+    }
+    .brand-logo {
+        width: 60%
+    }
 }
 span#logo {
     width: 50%;
