@@ -1,5 +1,5 @@
 <template>
-<div id="main-body">
+<div id="dark-body">
 	<app-top-bar></app-top-bar>
 	<router-view></router-view>
 	<app-my-footer></app-my-footer>
@@ -56,10 +56,17 @@ a {
 
 #main-body {
 	background: rgb(38,8,98);
-background: -moz-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
-background: -webkit-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
-background: radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#260862",endColorstr="#38206a",GradientType=1);er: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c39a4",endColorstr="#38206a",GradientType=1);	
+	background: -moz-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
+	background: -webkit-radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
+	background: radial-gradient(circle, rgba(38,8,98,1) 0%, rgba(56,32,106,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#260862",endColorstr="#38206a",GradientType=1);er: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5c39a4",endColorstr="#38206a",GradientType=1);	
+}
+#dark-body {
+background: rgb(248,244,255);
+background: -moz-radial-gradient(circle, rgba(248,244,255,1) 0%, rgba(214,212,218,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(248,244,255,1) 0%, rgba(214,212,218,1) 100%);
+background: radial-gradient(circle, rgba(248,244,255,1) 0%, rgba(214,212,218,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f8f4ff",endColorstr="#d6d4da",GradientType=1);
 }
 
 .my-card {
