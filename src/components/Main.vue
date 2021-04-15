@@ -27,11 +27,11 @@ export default {
 	data() {
 		return {
             itemData: {
-                serialNumber: this.$route.query.S ,
-                year: this.$route.query.D,
-                factory: this.$route.query.V,
-                manufacturer: this.$route.query.H,
-                materialNumber: this.$route.query.P,
+                serialNumber: this.$route.query.S || '--' ,
+                year: this.$route.query.D || '--' ,
+                factory: this.$route.query.V || '--' ,
+                manufacturer: this.$route.query.H || '--' ,
+                materialNumber: this.$route.query.P || '--' ,
             },
             pdfIndex: 0,
 		}
