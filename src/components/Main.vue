@@ -34,19 +34,21 @@ export default {
                 materialNumber: this.$route.query.P || '--' ,
             },
             pdfIndex: 0,
+            allData: 0,
 		}
 	},
 	methods: {
-		
+		readSomething() {
+            console.warn(this.allData)
+        },
 	},
 	components: {
 		appDataContainer: DataContainer,
 		appDisplayPdf: DisplayPdf,
 		appFileSelector: FileSelector,
 	},
-	afterMount: () => {
-        console.error('ON MAIN')
-
+	mounted: () => {
+        console.warn('ON MAIN')
     }
 }
 </script>

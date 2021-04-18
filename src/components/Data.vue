@@ -26,7 +26,7 @@ export default {
         'materialNumber',
     ],
     mounted: () => {
-        console.info('DataMounted')
+        console.warn('DataMounted')
     }
 }
 </script>

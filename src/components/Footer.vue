@@ -1,31 +1,47 @@
 <template>
     <div id="my-footer" style="background-color: #1B1534">
-        <div>
-            <div id="row-flex-1">
-                <b-button>Hello there</b-button>
-            </div>
-            <div id="row-flex-2">
-                <b-icon icon="exclamation-circle-fill" variant="success"></b-icon>
-            </div>
-        </div>
+        <b-container>
+            <b-row>
+                <b-col cols="12">
+                    <p>Developed by {{ developer }}</p>
+                </b-col>
+                <b-col>
+                    <p>In association with ITESM&#8482; Campus Querétaro</p>
+                </b-col>
+            </b-row>
+            <b-row class="bottom-row">
+                <b-col>
+                    <p> © Siemens Energy, 2020 - 2021</p>
+                </b-col>
+            </b-row>
+        </b-container>
     </div>
 </template>
 
 <script>
 export default {
-    setup() {
-        
+    data() {
+        return {
+            developer: 'Siemens Energy México',
+        }
     },
 }
 </script>
 
 <style scoped>
-    p {
-        color: wheat;
+
+    .bottom-row {
+        border-top: 1.5px solid white;
+        font-size: 12px;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        color: #6A728F !important;
+
     }
 
     #my-footer {
         padding-top: 100px;
+        color: white;
     }
     @media only screen and (max-width: 600px) {
         #my-footer {
