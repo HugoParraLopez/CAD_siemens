@@ -6,6 +6,7 @@
             </b-col>
             <b-col class="item-link">
                 <b-button
+                    :disabled="!allData"
                     size="sm"
                     class="btn-accent"
                     @click="deployPdf"
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     setup() {
         
@@ -47,6 +49,9 @@ export default {
             this.$emit('selectedFile', this.selected)
         }
     },
+    computed: mapGetters({
+        allData: 'getAllData',
+    })
 }
 </script>
 

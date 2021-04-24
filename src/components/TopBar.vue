@@ -11,18 +11,16 @@
                         <template #button-content>
                             <b-icon icon="globe2"></b-icon> Idioma
                         </template>
-                        <b-dropdown-item >EN</b-dropdown-item>
-                        <b-dropdown-item active>ES</b-dropdown-item>
-                        <b-dropdown-item >RU</b-dropdown-item>
-                        <b-dropdown-item >FA</b-dropdown-item>
+                        <b-dropdown-item :active="isEnglish" @click="setLocale('EN')">EN</b-dropdown-item>
+                        <b-dropdown-item :active="!isEnglish" @click="setLocale('ES')">ES</b-dropdown-item>
                     </b-nav-item-dropdown>
 
                     <b-nav-item-dropdown right>
                         <template #button-content>
                             <b-icon icon="globe2"></b-icon> Tema                            
                         </template>
-                        <b-dropdown-item disabled>SE Day</b-dropdown-item>
-                        <b-dropdown-item active>SE Dark</b-dropdown-item>
+                        <b-dropdown-item :active="isLight" @click="setTheme('light')">SE Day</b-dropdown-item>
+                        <b-dropdown-item :active="!isLight" @click="setTheme('dark')">SE Dark</b-dropdown-item>
                     </b-nav-item-dropdown>
 
                 </b-navbar-nav>
@@ -33,6 +31,8 @@
 
 <script>
 import siemensLogo from './SiemensLogo'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
     data() {
         return {
@@ -41,7 +41,17 @@ export default {
     },
     components: {
         siemensLogo: siemensLogo
-    }
+    },
+    methods: mapMutations([
+        'setLocale',
+        'setTheme',
+    ]),
+    computed: mapGetters({
+        locale: 'getLocale',
+        isEnglish: 'isEnglish',
+        theme: 'getTheme',
+        isLight: 'isLight',
+    }),
 }
 </script>
 

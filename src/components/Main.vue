@@ -1,12 +1,11 @@
 <template>
     <b-container class="main-data">
-        <!-- <b-row class="row"> {{ itemData.serialNumber }}</b-row> -->
-        <!-- <b-row> {{ $route.query.D }}</b-row> -->
+        <b-row> TEST QUERY 1 {{ serialN }} , {{ locale }}, {{ getParams.year }}, {{ allData }}</b-row>
         <b-row >
             <b-col xs="12" sm="4" md="5">
-                <app-data-container v-bind="itemData"></app-data-container>
+                <app-data-container v-bind="getParams"></app-data-container>
                 <app-file-selector
-                    v-bind="itemData"
+                    v-bind="getParams"
                     :pdfIndex="pdfIndex"
                     @updatePdfIndex="pdfIndex = $event"
                 ></app-file-selector>
@@ -22,33 +21,35 @@
 	import DataContainer from './Data.vue'
 	import DisplayPdf from './DisplayPdf.vue'
 	import FileSelector from './FileSelector'
-	
+    import { mapGetters } from 'vuex'
+    import { mapMutations } from 'vuex'
+ 	
 export default {
 	data() {
 		return {
-            itemData: {
-                serialNumber: this.$route.query.S || '--' ,
-                year: this.$route.query.D || '--' ,
-                factory: this.$route.query.V || '--' ,
-                manufacturer: this.$route.query.H || '--' ,
-                materialNumber: this.$route.query.P || '--' ,
-            },
             pdfIndex: 0,
-            allData: 0,
 		}
 	},
-	methods: {
-		readSomething() {
-            console.warn(this.allData)
-        },
-	},
+    computed: mapGetters({
+        pdfIndexer: 'pdfIndexer',
+        serialN: 'getSerial',
+        locale: 'getLocale',
+        getParams: 'getUrlParameters',
+        allData: 'getAllData',
+    }),
+	methods: mapMutations([
+        'setUrlParams'
+    ]),
 	components: {
 		appDataContainer: DataContainer,
 		appDisplayPdf: DisplayPdf,
 		appFileSelector: FileSelector,
 	},
 	mounted: () => {
-        console.warn('ON MAIN')
+        console.warn('ON MAIN mounted')
+    },
+    created: () => {
+        console.warn('ON MAIN created')
     }
 }
 </script>
