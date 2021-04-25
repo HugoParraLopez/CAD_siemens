@@ -24,6 +24,7 @@ export const messages = {
         developed: 'Developed by Siemens Energy Mexico',
         credits: 'In association with ITESM™ Campus Querétaro',
         disclaimer: '© Siemens Energy, 2020 - 2021',
+        selectPdf: 'Select a file to display',
     },
     es: {
         //Top Bar
@@ -50,5 +51,6 @@ export const messages = {
         developed: 'Desarrollado por Siemens Energy México',
         credits: 'En conjunto con ITESM™ Campus Querétaro',
         disclaimer: '© Siemens Energy, 2020 - 2021',
+        selectPdf: 'Seleccione un archivo para mostrar',
     },
 }

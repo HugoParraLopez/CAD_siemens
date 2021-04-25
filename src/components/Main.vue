@@ -9,7 +9,7 @@
                 ></app-file-selector>
             </b-col>
             <b-col xs="12" sm="8" md="7">
-                <app-display-pdf></app-display-pdf>
+                <app-display-pdf :url="currentUrl(pdfUrl)"></app-display-pdf>
             </b-col>
         </b-row>
     </b-container>
@@ -25,6 +25,7 @@
 export default {
 	data() {
 		return {
+            proxy: 'https://gentle-castle-93152.herokuapp.com',
 		}
 	},
     computed: mapGetters({
@@ -34,9 +35,15 @@ export default {
         getParams: 'getUrlParameters',
         allData: 'getAllData',
     }),
-	methods: mapMutations([
-        'setUrlParams'
-    ]),
+	methods: {
+        ...mapMutations([
+            'setUrlParams'
+        ]),
+        currentUrl(url){
+            console.warn('..................', url, this.proxy)
+            return `${this.proxy}/${url}`
+        }
+    },
 	components: {
 		appDataContainer: DataContainer,
 		appDisplayPdf: DisplayPdf,
