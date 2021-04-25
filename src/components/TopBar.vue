@@ -9,7 +9,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item-dropdown right @change="changeLocale">
                         <template #button-content>
-                            <b-icon icon="globe2"></b-icon> Idioma
+                            <b-icon icon="globe2"></b-icon> {{ $t('language') }}
                         </template>
                         <b-dropdown-item :active="isEnglish" @click="changeLocale('en')">EN</b-dropdown-item>
                         <b-dropdown-item :active="!isEnglish" @click="changeLocale('es')">ES</b-dropdown-item>
@@ -17,7 +17,7 @@
 
                     <b-nav-item-dropdown right>
                         <template #button-content>
-                            <b-icon icon="globe2"></b-icon> Tema                            
+                            <b-icon icon="globe2"></b-icon> {{ $t('theme') }}                            
                         </template>
                         <b-dropdown-item :active="isLight" @click="setTheme('light')">SE Day</b-dropdown-item>
                         <b-dropdown-item :active="!isLight" @click="setTheme('dark')">SE Dark</b-dropdown-item>

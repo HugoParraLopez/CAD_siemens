@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
         // GENERAL STATE
         locale: 'es',
         theme: 'light',
-        pdfIndex: 0,
+        pdfUrl: undefined,
+        pdfName: undefined,
         // URL parameters
         urlKeys: ['S', 'D', 'V', 'H', 'P', ],
         urlValues: [],
@@ -17,8 +18,11 @@ export const store = new Vuex.Store({
         // sn: '0',
     },
     getters: {
-        getPdfIndex: state => {
-            return state.pdfIndex
+        getPdfUrl: state => {
+            return state.pdfUrl
+        },
+        getPdfName: state => {
+            return state.pdfName
         },
         getTheme: state => {
             return state.theme
@@ -73,8 +77,11 @@ export const store = new Vuex.Store({
         setTheme: (state, value) => {
             state.theme = value
         },
-        setPdfIndex: (state, value) => {
-            state.pdfIndex = value
+        setPdfUrl: (state, value) => {
+            state.pdfUrl = value
+        },
+        setPdfName: (state, value) => {
+            state.pdfName = value
         },
     }
 })

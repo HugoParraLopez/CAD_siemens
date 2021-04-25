@@ -3,10 +3,10 @@
         <!-- <div class="pdf">
             This is a PDF Viewer
         </div> -->
-        <h3 class="my-file-title">{{ files[pdfIndex].name }}</h3>
-        <p>{{ currentPage }}/{{ pageCount }}</p>
+        <h3 class="my-file-title">{{ getPdfName }}</h3>
+        <p v-show="getPdfName != undefined">{{ currentPage }}/{{ pageCount }}</p>
         <pdf
-            :src="selectCurrentFile(pdfIndex)"
+            :src="`${proxy}/${getPdfUrl}`"
             @num-pages="pageCount = $event"
             @page-loaded="currentPage = $event"
 
@@ -17,52 +17,37 @@
 <script>
 
 import pdf from 'vue-pdf'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
     data() {
         return {
             currentPage: 0,
             pageCount: 0,
-            currentSource: 'https://gentle-castle-93152.herokuapp.com/https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+            altSource: 'https://gentle-castle-93152.herokuapp.com/https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
             proxy: 'https://gentle-castle-93152.herokuapp.com',
-            files:[
-                {
-                    id: 0,
-                    src: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-                    name: 'Testing 1 page'
-                },
-                {
-                    id: 1,
-                    src: 'http://www.orimi.com/pdf-test.pdf',
-                    name: 'Different file to test'
-                },
-                {
-                    id: 2,
-                    src: 'https://www.ets.org/Media/Tests/GRE/pdf/gre_research_validity_data.pdf',
-                    name: 'Option 3 for pdf test'
-                },
-            ]
         }
-    },
-    props: {
-        pdfIndex: Number,
     },
     components: {
         pdf
     },
      methods: {
+         ...mapMutations([
+
+         ]),
         selectCurrentFile(index) {
             this.currentSource = `${this.proxy}/${this.files[index].src} `
             console.log(this.currentSource)
             return this.currentSource
         }
     },
-            // mounted() {
-            //         console.info('Hello There')
-            //         let domEl = this.$el
-            //         PDFObject.embed('./../assets/docs/Formato_minutas.pdf',domEl)
-            //         console.error(domEl)
-            //     }
+    computed: {
+        ...mapGetters([
+            'getPdfUrl',
+            'getPdfName',
+        ])
+    }
 }
 </script>
 

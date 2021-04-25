@@ -1,12 +1,11 @@
 <template>
     <div class="my-card">
-        <h3>DOCUMENTOS, {{ selectedIndex }}</h3> <br>
+        <h3>{{ $t('files.title') }}</h3> <br>
         <ul>
             <app-file-item 
-                v-for="(item, index) in filterFiles()"
+                v-for="(item, index) in filterFiles(getLocale)"
                 v-bind="item"
-                :key="index"
-                @selectedFile="selectFile(index,$event)">
+                :key="index">
             </app-file-item>
         </ul>
     </div>
@@ -19,42 +18,14 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            selectedIndex: 0,
-            availableFiles: [
-                { 
-                    fileName: 'Testing 1 page',
-                    tags: [`${this.serialNumber}`,`${this.materialNumber}`],
-                    selected: false,
-                },
-                { 
-                    fileName: 'Different file to test',
-                    tags: [`${this.serialNumber}`,`${this.materialNumber}`],
-                    selected: false,
-                },
-                { 
-                    fileName: 'Option 3 for the pdf test',
-                    tags: [`${this.serialNumber}`,`${this.materialNumber}`],
-                    selected: false,
-                },
-            ]
         }
     },
-    mounted: () => {
-        this.selectedIndex = 2
-        //console.warn('MOUNTED FILES', this.selectedIndex, files)
-    },
     methods: {
-        selectFile(index,event) {
-            this.selectedIndex = event ? index : 0
-            //console.warn(this.selectedIndex)
-            this.$emit('updatePdfIndex', this.selectedIndex)
-        },
-        filterFiles() {
+        filterFiles(compare) {
             let innerFiles = []
-            let compare = 'es'
-            console.warn(files[this.serialNumber])
+            //console.warn(files[this.serialNumber])
             for ([key,value] of Object.entries(files[this.serialNumber])) {
-                console.warn(key, value)
+                //console.warn(key, value)
                 if (value.locale == compare) {
                     innerFiles.push({
                         fileName: value.fileName,
@@ -82,7 +53,6 @@ export default {
         'factory',
         'manufacturer',
         'materialNumber',
-        'pdfIndex',
     ],
     components: {
         appFileItem: FileItem,

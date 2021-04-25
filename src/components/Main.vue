@@ -1,17 +1,15 @@
 <template>
     <b-container class="main-data">
-        <b-row> TEST QUERY 1 {{ serialN }} , {{ locale }}, {{ getParams.year }}, {{ allData }}</b-row>
+        <b-row> TEST QUERY 1 {{ pdfUrl }} , {{ locale }}, {{ getParams.year }}, {{ allData }}</b-row>
         <b-row >
             <b-col xs="12" sm="4" md="5">
                 <app-data-container v-bind="getParams"></app-data-container>
                 <app-file-selector
                     v-bind="getParams"
-                    :pdfIndex="pdfIndex"
-                    @updatePdfIndex="pdfIndex = $event"
                 ></app-file-selector>
             </b-col>
             <b-col xs="12" sm="8" md="7">
-                <app-display-pdf :pdfIndex="pdfIndex"></app-display-pdf>
+                <app-display-pdf></app-display-pdf>
             </b-col>
         </b-row>
     </b-container>
@@ -27,11 +25,10 @@
 export default {
 	data() {
 		return {
-            pdfIndex: 0,
 		}
 	},
     computed: mapGetters({
-        pdfIndexer: 'pdfIndexer',
+        pdfUrl: 'getPdfUrl',
         serialN: 'getSerial',
         locale: 'getLocale',
         getParams: 'getUrlParameters',

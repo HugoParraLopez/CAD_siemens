@@ -2,12 +2,12 @@ export const files = {
     '84160111': {
         0: {
             fileName: 'Manual de Usuario',
-            fileUrl: '',
+            fileUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
             locale: 'es',
         },
         1: {
             fileName: 'Esquemático',
-            fileUrl: '',
+            fileUrl: 'http://www.orimi.com/pdf-test.pdf',
             locale: 'es',
         },
         2: {
@@ -17,7 +17,7 @@ export const files = {
         },
         3: {
             fileName: 'Mantenimiento del Interruptor',
-            fileUrl: '',
+            fileUrl: 'https://www.ets.org/Media/Tests/GRE/pdf/gre_research_validity_data.pdf',
             locale: 'es',
         },
     },
