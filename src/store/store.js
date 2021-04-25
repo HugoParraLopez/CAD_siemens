@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         // GENERAL STATE
-        locale: 'EN',
+        locale: 'es',
         theme: 'light',
         pdfIndex: 0,
         // URL parameters
@@ -30,7 +30,7 @@ export const store = new Vuex.Store({
             return state.locale
         },
         isEnglish: state => {
-            return state.locale == 'EN' ? true : false
+            return state.locale == 'en' ? true : false
         },
 
         getAllData: state => {

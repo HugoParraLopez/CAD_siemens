@@ -7,12 +7,12 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-item-dropdown right>
+                    <b-nav-item-dropdown right @change="changeLocale">
                         <template #button-content>
                             <b-icon icon="globe2"></b-icon> Idioma
                         </template>
-                        <b-dropdown-item :active="isEnglish" @click="setLocale('EN')">EN</b-dropdown-item>
-                        <b-dropdown-item :active="!isEnglish" @click="setLocale('ES')">ES</b-dropdown-item>
+                        <b-dropdown-item :active="isEnglish" @click="changeLocale('en')">EN</b-dropdown-item>
+                        <b-dropdown-item :active="!isEnglish" @click="changeLocale('es')">ES</b-dropdown-item>
                     </b-nav-item-dropdown>
 
                     <b-nav-item-dropdown right>
@@ -42,10 +42,16 @@ export default {
     components: {
         siemensLogo: siemensLogo
     },
-    methods: mapMutations([
-        'setLocale',
-        'setTheme',
-    ]),
+    methods: {
+        ...mapMutations([
+            'setLocale',
+            'setTheme',
+        ]),
+        changeLocale(value) {
+            this.$root.$i18n.locale = value
+            this.setLocale(value)
+        }
+    },
     computed: mapGetters({
         locale: 'getLocale',
         isEnglish: 'isEnglish',
