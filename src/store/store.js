@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
         urlValues: [],
         allData: true,
         // TESTING
-        sn: '0',
+        // sn: '0',
     },
     getters: {
         getPdfIndex: state => {
@@ -40,16 +40,16 @@ export const store = new Vuex.Store({
             // using the queryString create the constant of UrlParameters
             const urlParams = new URLSearchParams(window.location.search)
             state.urlKeys.forEach(x => {
-                let inData = urlParams.get(x)
-                console.log(inData, x)
-                if (inData)
-                    state.urlValues.push(inData)
-                else {
-                    state.urlValues.push('--')
-                    state.allData = false
-                }
-            })
-            console.table(state.urlValues)
+                    let inData = urlParams.get(x)
+                        //console.log(inData, x)
+                    if (inData)
+                        state.urlValues.push(inData)
+                    else {
+                        state.urlValues.push('--')
+                        state.allData = false
+                    }
+                })
+                //console.table(state.urlValues)
                 // 
             return {
                 serialNumber: state.urlValues[0],
@@ -60,11 +60,11 @@ export const store = new Vuex.Store({
             }
         },
         // TESTING
-        getSerial: state => {
-            const urlParams = new URLSearchParams(state.queryString)
-            console.error(urlParams.get('X'))
-            return urlParams.get('X')
-        },
+        // getSerial: state => {
+        //     const urlParams = new URLSearchParams(state.queryString)
+        //     console.error(urlParams.get('X'))
+        //     return urlParams.get('X')
+        // },
     },
     mutations: {
         setLocale: (state, value) => {

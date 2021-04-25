@@ -27,7 +27,7 @@ export default {
 		
 	},
 	mounted: () => {
-			console.warn('AYUMDAM')
+			//console.warn('AYUMDAM')
 		}
 }
 </script>

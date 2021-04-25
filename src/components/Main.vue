@@ -46,10 +46,10 @@ export default {
 		appFileSelector: FileSelector,
 	},
 	mounted: () => {
-        console.warn('ON MAIN mounted')
+        //console.warn('ON MAIN mounted')
     },
     created: () => {
-        console.warn('ON MAIN created')
+        //console.warn('ON MAIN created')
     }
 }
 </script>
