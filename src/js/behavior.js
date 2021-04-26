@@ -1,1 +1,0 @@
-// Animation for the top bar

@@ -3,15 +3,15 @@
         <b-container>
             <b-row>
                 <b-col cols="12">
-                    <p>Developed by {{ developer }}</p>
+                    <p>{{ $t('developed') }}</p>
                 </b-col>
                 <b-col>
-                    <p>In association with ITESM&#8482; Campus Querétaro</p>
+                    <p>{{ $t('credits') }}</p>
                 </b-col>
             </b-row>
             <b-row class="bottom-row">
                 <b-col>
-                    <p> © Siemens Energy, 2020 - 2021</p>
+                    <p>{{ $t('disclaimer') }}</p>
                 </b-col>
             </b-row>
         </b-container>

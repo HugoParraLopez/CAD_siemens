@@ -3,7 +3,7 @@
 	
     <div class="resting">
         <div class="my-message">
-            <span class="alert alert-warning">{{ msg }}</span>
+            <span class="alert alert-warning">{{ $t('restMsg') }}</span>
         </div>
         <div class="loader">
             <span></span>
@@ -27,7 +27,7 @@ export default {
 		
 	},
 	mounted: () => {
-			console.warn('AYUMDAM')
+			//console.warn('AYUMDAM')
 		}
 }
 </script>

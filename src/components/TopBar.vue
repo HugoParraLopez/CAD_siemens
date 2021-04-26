@@ -7,22 +7,20 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-item-dropdown right>
+                    <b-nav-item-dropdown right @change="changeLocale">
                         <template #button-content>
-                            <b-icon icon="globe2"></b-icon> Idioma
+                            <b-icon icon="globe2"></b-icon> {{ $t('language') }}
                         </template>
-                        <b-dropdown-item >EN</b-dropdown-item>
-                        <b-dropdown-item active>ES</b-dropdown-item>
-                        <b-dropdown-item >RU</b-dropdown-item>
-                        <b-dropdown-item >FA</b-dropdown-item>
+                        <b-dropdown-item :active="isEnglish" @click="changeLocale('en')">EN</b-dropdown-item>
+                        <b-dropdown-item :active="!isEnglish" @click="changeLocale('es')">ES</b-dropdown-item>
                     </b-nav-item-dropdown>
 
                     <b-nav-item-dropdown right>
                         <template #button-content>
-                            <b-icon icon="globe2"></b-icon> Tema                            
+                            <b-icon icon="globe2"></b-icon> {{ $t('theme') }}                            
                         </template>
-                        <b-dropdown-item disabled>SE Day</b-dropdown-item>
-                        <b-dropdown-item active>SE Dark</b-dropdown-item>
+                        <b-dropdown-item :active="isLight" @click="setTheme('light')">SE Day</b-dropdown-item>
+                        <b-dropdown-item :active="!isLight" @click="setTheme('dark')">SE Dark</b-dropdown-item>
                     </b-nav-item-dropdown>
 
                 </b-navbar-nav>
@@ -33,6 +31,8 @@
 
 <script>
 import siemensLogo from './SiemensLogo'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
     data() {
         return {
@@ -41,7 +41,23 @@ export default {
     },
     components: {
         siemensLogo: siemensLogo
-    }
+    },
+    methods: {
+        ...mapMutations([
+            'setLocale',
+            'setTheme',
+        ]),
+        changeLocale(value) {
+            this.$root.$i18n.locale = value
+            this.setLocale(value)
+        }
+    },
+    computed: mapGetters({
+        locale: 'getLocale',
+        isEnglish: 'isEnglish',
+        theme: 'getTheme',
+        isLight: 'isLight',
+    }),
 }
 </script>
 

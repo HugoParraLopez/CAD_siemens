@@ -1,11 +1,11 @@
 <template>
     <div class="my-card">
-        <h2>DATOS GENERALES</h2> <br>
-        <p>Serial Number: <strong>{{ serialNumber }}</strong></p>
-        <p>Year of manufacturing: <strong>{{ year }}</strong></p>
-        <p>Factory: <strong>{{ factory }}</strong></p>
-        <p>Manufacturer: <strong>{{ manufacturer }}</strong></p>
-        <p>Material Number: <strong>{{ materialNumber }}</strong></p>
+        <h2>{{ $t('data.title') }}</h2> <br>
+        <p>{{ $t('data.serial') }}<strong>{{ serialNumber }}</strong></p>
+        <p>{{ $t('data.year') }}<strong>{{ year }}</strong></p>
+        <p>{{ $t('data.factory') }}<strong>{{ factory }}</strong></p>
+        <p>{{ $t('data.manufacturer') }}<strong>{{ manufacturer }}</strong></p>
+        <p>{{ $t('data.number') }}<strong>{{ materialNumber }}</strong></p>
         
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
         'materialNumber',
     ],
     mounted: () => {
-        console.warn('DataMounted')
+        //console.warn('DataMounted')
     }
 }
 </script>

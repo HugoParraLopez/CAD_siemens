@@ -6,11 +6,12 @@
             </b-col>
             <b-col class="item-link">
                 <b-button
+                    :disabled="!allData"
                     size="sm"
                     class="btn-accent"
-                    @click="deployPdf"
+                    @click="deployPdf(fileUrl, fileName)"
                     href="#my-pdf-viewer">
-                    <b-icon icon="eye-fill" aria-hidden="true"></b-icon> Ver
+                    <b-icon icon="eye-fill" aria-hidden="true"></b-icon> {{ $t('files.button') }}
                 </b-button>
             </b-col>
         </b-row>
@@ -25,28 +26,40 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
     setup() {
         
     },
     props: {
-        fileName: String,
+        fileName: {
+            type: String,
+            required: true,
+        },
         tags: {
             type: Array,
             required: false,
         },
-        selected: {
-            type: Boolean,
-            required: true
+        fileUrl: {
+            type: String,
+            required: true,
         }
     },
     methods: {
-        deployPdf() {
-            this.selected = true
-            console.log('Deploying pdf: ', this.fileName, this.selected)
-            this.$emit('selectedFile', this.selected)
+        ...mapMutations([
+            'setPdfUrl',
+            'setPdfName'
+        ]),
+        deployPdf(url,name) {
+            //console.warn(url)
+            this.setPdfUrl(url)
+            this.setPdfName(name)
         }
     },
+    computed: mapGetters({
+        allData: 'getAllData',
+    })
 }
 </script>
 
