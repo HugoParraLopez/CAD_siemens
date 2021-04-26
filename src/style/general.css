@@ -1,6 +1,6 @@
 /* ------------------------ Buttons -------------------------*/
 
-.btn-se-main {
+.btn-se-main-light {
     background-color: #38206A;
     outline-color: #271058;
     color: #FFF;
@@ -8,7 +8,7 @@
     vertical-align: middle;
 }
 
-.btn-se-main:hover {
+.btn-se-main-light:hover {
     background-color: #452783;
     outline-color: #33166e;
     color: #FFF;
@@ -16,7 +16,7 @@
     vertical-align: middle;
 }
 
-.btn-accent {
+.btn-accent-light {
     background-color: #00D9C7;
     outline-color: #02bbab;
     color: #FFF;
@@ -24,9 +24,41 @@
     vertical-align: middle;
 }
 
-.btn-accent:hover {
+.btn-accent-light:hover {
     background-color: #00FFB9;
     outline-color: #01ca95;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-se-main-dark {
+    background-color: #241545;
+    outline-color: #1B0B3D;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-se-main-dark:hover {
+    background-color: #391d72;
+    outline-color: #1f0e41;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-accent-dark {
+    background-color: #02887d;
+    outline-color: #007c72;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-accent-dark:hover {
+    background-color: #00926bcc;
+    outline-color: #0099708f;
     color: #FFF;
     text-align: center;
     vertical-align: middle;
