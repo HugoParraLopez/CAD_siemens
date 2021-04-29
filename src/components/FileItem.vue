@@ -17,10 +17,15 @@
         </b-row>
         <b-row class="item-tags">
             <b-badge
-                variant="info"
+                
                 v-for="(item, index) in tags"
                 :key="index"
-                style="margin-right: 3px">{{item}}</b-badge>
+                :style="`
+                    margin-right: 3px;
+                    color: ${getTheme == 'light' ? item.hexColor2 : item.hexColor};
+                    background-color: ${getTheme == 'light' ? '#BBB' : '#888'};
+                    `"
+                >{{item.value}}</b-badge>
         </b-row>
     </b-col>
 </template>
@@ -38,7 +43,7 @@ export default {
             required: true,
         },
         tags: {
-            type: Array,
+            type: Object,
             required: false,
         },
         fileUrl: {

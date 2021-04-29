@@ -9,7 +9,7 @@
 			id="my-pdf-loader"
 		>
 			<div
-				id="my-pdf-nav-bar"
+				:class="`my-pdf-nav-bar-${getTheme}`"
 			>
 				<p>{{ currentPage }}/{{ numPages }}</p>
 			</div>
@@ -92,9 +92,14 @@ export default {
         height: 580px;
 		overflow-y: scroll;
     }
-    #my-pdf-nav-bar{
+    .my-pdf-nav-bar-light{
         position: static;
 		background-color: #AAA;
+		padding: 2%;
+    }
+    .my-pdf-nav-bar-dark{
+        position: static;
+		background-color: #555;
 		padding: 2%;
     }
 	.my-pdf-page{

@@ -30,12 +30,34 @@ export default {
                     innerFiles.push({
                         fileName: value.fileName,
                         fileUrl: value.fileUrl,
-                        tags: [
-                            `${this.year}`,
-                            `${this.materialNumber}`,
-                            `${this.factory}`,
-                            `${this.manufacturer}`,
-                        ],
+                        // tags: [
+                        //     `${this.year}`,
+                        //     `${this.materialNumber}`,
+                        //     `${this.factory}`,
+                        //     `${this.manufacturer}`,
+                        // ],
+                        tags: {
+                            0: {
+                                hexColor: '#FF66CC',
+                                hexColor2: '#D555AA',
+                                value: `${this.year}`,
+                            },
+                            1: {
+                                hexColor: '#38bf1d',
+                                hexColor2: '#2A9015',
+                                value: `${this.materialNumber}`,
+                            },
+                            2: {
+                                hexColor: '#ff8547',
+                                hexColor2: '#B15C31',
+                                value: `${this.factory}`,
+                            },
+                            3: {
+                                hexColor: '#1468DF',
+                                hexColor2: '#246CB5',
+                                value: `${this.manufacturer}`,
+                            },
+                        }
                     })
                 }
             }
