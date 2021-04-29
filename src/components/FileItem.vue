@@ -49,17 +49,22 @@ export default {
     methods: {
         ...mapMutations([
             'setPdfUrl',
-            'setPdfName'
+            'setPdfName',
+            'setIsLoaded'
         ]),
         deployPdf(url,name) {
             //console.warn(url)
             this.setPdfUrl(url)
             this.setPdfName(name)
+            // console.error('before', this.isLoaded)
+            // this.setIsLoaded(false,name)
+            // console.error('After', this.isLoaded)
         },
     },
     computed: mapGetters({
         allData: 'getAllData',
         getTheme: 'getTheme',
+        isLoaded: 'isLoaded'
     })
 }
 </script>

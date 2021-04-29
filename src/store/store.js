@@ -10,6 +10,7 @@ export const store = new Vuex.Store({
         theme: 'light',
         pdfUrl: undefined,
         pdfName: undefined,
+        isLoaded: false,
         // URL parameters
         urlKeys: ['S', 'D', 'V', 'H', 'P', ],
         urlValues: [],
@@ -23,6 +24,9 @@ export const store = new Vuex.Store({
         },
         getPdfName: state => {
             return state.pdfName
+        },
+        isLoaded: state => {
+            return state.isLoaded
         },
         getTheme: state => {
             return state.theme
@@ -83,5 +87,11 @@ export const store = new Vuex.Store({
         setPdfName: (state, value) => {
             state.pdfName = value
         },
+        setIsLoaded: (state, value, compare) => {
+            if (value == false) {
+                state.isLoaded = compare == state.pdfName ? true : false
+            }
+            state.isLoaded = value
+        }
     }
 })

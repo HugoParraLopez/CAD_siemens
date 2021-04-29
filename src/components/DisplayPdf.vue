@@ -4,15 +4,27 @@
             This is a PDF Viewer
         </div> -->
         <h3 class="my-file-title">{{ getPdfName }}</h3>
-        <p v-show="getPdfName != undefined">{{ currentPage }}/{{ pageCount }}</p>
-        <pdf
-            v-if="getPdfUrl != undefined"
-            :src="url"
-            @num-pages="pageCount = $event"
-            @page-loaded="currentPage = $event"
-
-            ></pdf>
-            <div v-else id="lazy-waiting" style="margin-bottom: 10%">
+		<div
+            v-if="getPdfName != undefined"
+			id="my-pdf-loader"
+		>
+			<div
+				id="my-pdf-nav-bar"
+			>
+				<p>{{ currentPage }}/{{ numPages }}</p>
+			</div>
+			<div class="my-pdf-overflow">
+				<pdf
+					v-for="i in numPages"
+					:key="i"
+					:page="i"
+					:src="src"
+					:num-pages="numPages"
+					class="my-pdf-page"
+					></pdf>
+			</div>
+		</div>
+            <div v-else id="lazy-waiting">
                 <b-alert v-if="getPdfName == undefined" variant="info" show>{{$t('selectPdf')}}</b-alert>
                 <div class="loader" ></div>
             </div>
@@ -23,45 +35,80 @@
 
 import pdf from 'vue-pdf'
 import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 
-//let pdfDocument = pdf.createLoadingTask(url)
 export default {
-    data() {
-        return {
-            currentPage: 0,
-            pageCount: 0,
+	data() {
+		return {
+			src: 'perro',
+			currentPage: 0,
+            numPages: 0,
             altSource: 'https://gentle-castle-93152.herokuapp.com/https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
             
         }
     },
     props: ['url'],
     components: {
-        pdf
+		pdf
     },
      methods: {
-    },
+		 ...mapMutations([
+			 'setIsLoaded',
+		 ]),
+	},
     computed: {
-        ...mapGetters([
-            'getPdfName',
+		...mapGetters([
+			'getPdfName',
             'getPdfUrl',
 			'getTheme',
+			'isLoaded'
         ])
-    }
+    },
+	beforeUpdate() {
+		this.src = pdf.createLoadingTask(this.url)
+		//console.error(this.url)
+		// console.log('beforeUpdate',this.isLoaded, this.src)
+	},
+	updated() {
+		// console.log('update',this.isLoaded)
+		this.src.promise.then(pdf => {
+			this.numPages = pdf.numPages
+			// console.warn('ENTER PROMISE', pdf)
+			// console.log('updatePromise',this.isLoaded)
+		})
+	}
 }
 </script>
 
 <style scoped>
-    .my-card{
+    #my-pdf-viewer{
         padding: 2% 1% !important;
         display: inline-block !important;
     }
+    #my-pdf-loader{
+        border: 2px solid #CCC;
+    }
+    .my-pdf-overflow{
+        height: 580px;
+		overflow-y: scroll;
+    }
+    #my-pdf-nav-bar{
+        position: static;
+		background-color: #AAA;
+		padding: 2%;
+    }
+	.my-pdf-page{
+		display: inline-block;
+		width: 100%;
+		margin-top: 2%;
+	}
     .my-file-title {
         padding: 5% 1%;
     }
 
     #lazy-waiting {
         text-align: center;
-        margin: 0 5% 0 5%;
+        margin: 0 5% 10% 5%;
     }
 
     .loader:before{

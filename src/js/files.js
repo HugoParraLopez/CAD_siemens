@@ -12,7 +12,7 @@ export const files = {
         },
         2: {
             fileName: 'User Manual',
-            fileUrl: '',
+            fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Copia+de+Reporte+proyectos.pdf',
             locale: 'en',
         },
         3: {

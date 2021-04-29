@@ -72,7 +72,6 @@ a {
 	/* Themes for the card backgrounds */
 .my-card-light {
 	width: 100%;
-	padding: 5% 1%;
 	display: inline-block;
 	margin: 4% 2%;
 	background-color: #e3e3e3;
@@ -85,7 +84,6 @@ a {
     }
 .my-card-dark {
 	width: 100%;
-	padding: 5% 1%;
 	color: #ccc;
 	display: inline-block;
 	margin: 4% 2%;

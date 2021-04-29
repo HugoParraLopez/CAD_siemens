@@ -40,7 +40,7 @@ export default {
             'setUrlParams'
         ]),
         currentUrl(url){
-            console.warn('..................', url, this.proxy)
+            //console.warn('..................', url, this.proxy)
             return `${this.proxy}/${url}`
         }
     },
