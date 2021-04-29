@@ -3,6 +3,8 @@ export const messages = {
         //Top Bar
         language: 'Language',
         theme: 'Theme',
+        themeLight: 'Light',
+        themeDark: 'Dark',
         //Rest
         restMsg: 'Please scan a valid code',
         // Main
@@ -30,6 +32,8 @@ export const messages = {
         //Top Bar
         language: 'Idioma',
         theme: 'Tema',
+        themeLight: 'Claro',
+        themeDark: 'Oscuro',
         //Rest
         restMsg: 'Por favor escnaee un código válido',
         // Main

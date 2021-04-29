@@ -1,5 +1,5 @@
 <template>
-    <div class="my-card">
+    <div :class="`my-card-${getTheme}`">
         <h3>{{ $t('files.title') }}</h3> <br>
         <ul>
             <app-file-item 
@@ -44,7 +44,8 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'getLocale'
+            'getLocale',
+            'getTheme',
         ]),
     },
     props: [

@@ -1,6 +1,6 @@
 <template>
     <b-container class="main-data">
-        <b-row> TEST QUERY 1 {{ pdfUrl }} , {{ locale }}, {{ getParams.year }}, {{ allData }}</b-row>
+        <!-- <b-row> TEST QUERY 1 {{ pdfUrl }} , {{ locale }}, {{ getParams.year }}, {{ allData }}</b-row> -->
         <b-row >
             <b-col xs="12" sm="4" md="5">
                 <app-data-container v-bind="getParams"></app-data-container>

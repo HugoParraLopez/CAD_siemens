@@ -15,12 +15,12 @@
                         <b-dropdown-item :active="!isEnglish" @click="changeLocale('es')">ES</b-dropdown-item>
                     </b-nav-item-dropdown>
 
-                    <b-nav-item-dropdown right>
+                    <b-nav-item-dropdown right >
                         <template #button-content>
                             <b-icon icon="globe2"></b-icon> {{ $t('theme') }}                            
                         </template>
-                        <b-dropdown-item :active="isLight" @click="setTheme('light')">SE Day</b-dropdown-item>
-                        <b-dropdown-item :active="!isLight" @click="setTheme('dark')">SE Dark</b-dropdown-item>
+                        <b-dropdown-item :active="isLight" @click="setTheme('light')">{{$t('themeLight')}}</b-dropdown-item>
+                        <b-dropdown-item :active="!isLight" @click="setTheme('dark')">{{$t('themeDark')}}</b-dropdown-item>
                     </b-nav-item-dropdown>
 
                 </b-navbar-nav>
@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .my-nav {
     padding-top: 20px;

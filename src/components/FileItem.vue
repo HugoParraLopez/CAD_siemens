@@ -1,5 +1,5 @@
 <template>
-    <b-col class="item-card">
+    <b-col :class="`item-card-${getTheme}`">
         <b-row class="item-title">
             <b-col class="item-name">
                 <em>{{ fileName }}</em>
@@ -8,7 +8,7 @@
                 <b-button
                     :disabled="!allData"
                     size="sm"
-                    class="btn-accent"
+                    :class="`btn-se-main-${getTheme}`"
                     @click="deployPdf(fileUrl, fileName)"
                     href="#my-pdf-viewer">
                     <b-icon icon="eye-fill" aria-hidden="true"></b-icon> {{ $t('files.button') }}
@@ -55,20 +55,32 @@ export default {
             //console.warn(url)
             this.setPdfUrl(url)
             this.setPdfName(name)
-        }
+        },
     },
     computed: mapGetters({
         allData: 'getAllData',
+        getTheme: 'getTheme',
     })
 }
 </script>
 
 <style scoped>
-.item-card {
+.item-card-light {
     background-color: #755da8;
     color: white;
     border-radius: 12px;
 	border: 3px solid #00D9C7;
+    align-items: center;
+    margin: auto;
+    margin-top: 4%;
+    padding-top: 2%;
+
+}
+.item-card-dark {
+    background-color: #5E4B87;
+    color: white;
+    border-radius: 12px;
+	border: 3px solid #009E91;
     align-items: center;
     margin: auto;
     margin-top: 4%;

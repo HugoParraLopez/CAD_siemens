@@ -1,5 +1,5 @@
 <template>
-    <div class="my-card" id="my-pdf-viewer">
+    <div :class="`my-card-${getTheme}`" id="my-pdf-viewer">
         <!-- <div class="pdf">
             This is a PDF Viewer
         </div> -->
@@ -43,7 +43,8 @@ export default {
     computed: {
         ...mapGetters([
             'getPdfName',
-            'getPdfUrl'
+            'getPdfUrl',
+			'getTheme',
         ])
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="my-card">
+    <div :class="`my-card-${getTheme}`">
         <h2>{{ $t('data.title') }}</h2> <br>
         <p>{{ $t('data.serial') }}<strong>{{ serialNumber }}</strong></p>
         <p>{{ $t('data.year') }}<strong>{{ year }}</strong></p>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
@@ -25,8 +25,10 @@ export default {
         'manufacturer',
         'materialNumber',
     ],
-    mounted: () => {
-        //console.warn('DataMounted')
+    computed: {
+        ...mapGetters([
+            'getTheme',
+        ])
     }
 }
 </script>

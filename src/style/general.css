@@ -1,8 +1,6 @@
-/* ------------------------ Buttons -------------------------*/
-
 .btn-se-main-light {
-    background-color: #38206A;
-    outline-color: #271058;
+    background-color: #206a41;
+    outline-color: #3c5810;
     color: #FFF;
     text-align: center;
     vertical-align: middle;
@@ -31,6 +29,9 @@
     text-align: center;
     vertical-align: middle;
 }
+
+
+/* Now the dak version*/
 
 .btn-se-main-dark {
     background-color: #241545;
