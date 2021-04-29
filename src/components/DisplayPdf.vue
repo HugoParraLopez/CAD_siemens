@@ -88,17 +88,13 @@ export default {
     #my-pdf-loader{
         border: 2px solid #CCC;
     }
-    .my-pdf-overflow{
-        height: 580px;
-		overflow-y: scroll;
-    }
     .my-pdf-nav-bar-light{
-        position: static;
+		position: static;
 		background-color: #AAA;
 		padding: 2%;
     }
     .my-pdf-nav-bar-dark{
-        position: static;
+		position: static;
 		background-color: #555;
 		padding: 2%;
     }
@@ -108,8 +104,37 @@ export default {
 		margin-top: 2%;
 	}
     .my-file-title {
-        padding: 5% 1%;
+		padding: 5% 1%;
     }
+	/* STARTING CLASSES FOR THE OVERFLOW DEPENDING ON THE DEVICE */
+	@media only screen and (max-width: 600px) {
+		/*For Legacy Mobile*/
+		.my-pdf-overflow{
+			height: 470px !important;
+			overflow-y: scroll;
+		}
+	}
+	@media only screen and (min-width: 600px) {
+		/*For High-end Mobile*/
+		.my-pdf-overflow{
+			height: 650px !important;
+			overflow-y: scroll;
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		/*For Tablet*/
+		.my-pdf-overflow{
+			height: 500px !important;
+			overflow-y: scroll;
+		}
+	}
+	@media only screen and (min-width: 992px) {
+		/*For PC*/
+		.my-pdf-overflow{
+			height: 675px !important;
+			overflow-y: scroll;
+		}
+	}
 
     #lazy-waiting {
         text-align: center;

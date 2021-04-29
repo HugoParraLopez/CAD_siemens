@@ -55,10 +55,10 @@ a {
 /* Themes for the background (gradients) */
 #dark-body {
 	background: rgb(46,28,77);
-	background: -moz-radial-gradient(circle, rgba(46,28,77,1) 0%, rgba(65,65,65,1) 100%);
-	background: -webkit-radial-gradient(circle, rgba(46,28,77,1) 0%, rgba(65,65,65,1) 100%);
-	background: radial-gradient(circle, rgba(46,28,77,1) 0%, rgba(65,65,65,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e1c4d",endColorstr="#414141",GradientType=1);
+	background: -moz-radial-gradient(circle, rgba(46,28,77,1) 0%, rgba(59,47,74,1) 100%);
+	background: -webkit-radial-gradient(circle, rgba(46,28,77,1) 0%, rgba(59,47,74,1) 100%);
+	background: radial-gradient(circle, rgba(46,28,77,1) 0%, rgba(59,47,74,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e1c4d",endColorstr="#3b2f4a",GradientType=1);
 }
 
 #light-body {
