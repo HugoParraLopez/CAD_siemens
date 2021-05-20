@@ -19,6 +19,7 @@
             <b-badge
                 
                 v-for="(item, index) in tags"
+                v-if="item.value != '--'"
                 :key="index"
                 :style="`
                     margin-right: 3px;

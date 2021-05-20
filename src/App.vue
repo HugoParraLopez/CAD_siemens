@@ -75,7 +75,7 @@ a {
 	display: inline-block;
 	margin: 4% 2%;
 	background-color: #e3e3e3;
-	border: 2px solid #00D9C7;
+	border: 1.2px solid #00D9C7;
 	border-radius: 1.2rem;
 	padding: 20px 40px;
 	-webkit-box-shadow: 0px 0px 30px 1px rgba(128, 128, 128, 0.8);
@@ -88,7 +88,7 @@ a {
 	display: inline-block;
 	margin: 4% 2%;
 	background-color: #373637;
-	border: 2px solid #009E91;
+	border: 1.2px solid #009E91;
 	border-radius: 1.2rem;
 	padding: 20px 40px;
 	-webkit-box-shadow: 0px 0px 30px 1px rgba(71, 71, 71, 0.8);

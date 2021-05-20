@@ -101,7 +101,7 @@ export default {
 	.my-pdf-page{
 		display: inline-block;
 		width: 100%;
-		margin-top: 2%;
+		margin-top: 4%;
 	}
     .my-file-title {
 		padding: 5% 1%;
