@@ -24,10 +24,10 @@
 					></pdf>
 			</div>
 		</div>
-            <div v-else id="lazy-waiting">
-                <b-alert v-if="getPdfName == undefined" variant="info" show>{{$t('selectPdf')}}</b-alert>
-                <div class="loader" ></div>
-            </div>
+		<div v-else id="lazy-waiting">
+			<b-alert v-if="getPdfName == undefined" variant="info" show>{{$t('selectPdf')}}</b-alert>
+			<div class="loader" ></div>
+		</div>
     </div>
 </template>
 

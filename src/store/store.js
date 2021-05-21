@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { files } from './../js/files'
 
 Vue.use(Vuex);
 
@@ -15,6 +16,8 @@ export const store = new Vuex.Store({
         urlKeys: ['S', 'D', 'V', 'H', 'P', ],
         urlValues: [],
         allData: true,
+        modelSrc: './',
+        auxSN: '',
         // TESTING
         // sn: '0',
     },
@@ -44,6 +47,9 @@ export const store = new Vuex.Store({
         getAllData: state => {
             return state.allData
         },
+        getModelSrc: state => {
+            return state.auxSN != '' ? files[state.auxSN].model.src : state.modelSrc
+        },
         getUrlParameters: state => {
             // using the queryString create the constant of UrlParameters
             const urlParams = new URLSearchParams(window.location.search)
@@ -59,6 +65,7 @@ export const store = new Vuex.Store({
                 })
                 //console.table(state.urlValues)
                 // 
+            state.auxSN = state.urlValues[0]
             return {
                 serialNumber: state.urlValues[0],
                 year: state.urlValues[1],
@@ -92,6 +99,6 @@ export const store = new Vuex.Store({
                 state.isLoaded = compare == state.pdfName ? true : false
             }
             state.isLoaded = value
-        }
+        },
     }
 })

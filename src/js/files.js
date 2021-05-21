@@ -30,6 +30,10 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/05-map-basednavigation.pdf',
             locale: 'en',
         },
+        model: {
+            type: 'model',
+            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968f67327ab288c1779?mode=embed',
+        },
     },
     '87180026': {
         0: {
@@ -51,6 +55,10 @@ export const files = {
             fileName: 'Garantía de Operaciones',
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Propuesta+T%C3%A9cnica.pdf',
             locale: 'es',
+        },
+        model: {
+            type: 'model',
+            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968a097f465a46da5f6?mode=embed',
         },
     },
     '35124064': {
@@ -74,6 +82,10 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Tarea+02+-+Modelo+real+aproximado+del+OpAmp.pdf',
             locale: 'es',
         },
+        model: {
+            type: 'model',
+            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968ed6e47b91bf071df?mode=embed',
+        },
     },
     '87180050': {
         0: {
@@ -86,5 +98,6 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Diego+Ramirez+Ramirez_en-1.pdf',
             locale: 'en',
         },
+        model: '',
     },
 }

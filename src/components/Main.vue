@@ -12,11 +12,17 @@
                 <app-display-pdf :url="currentUrl(pdfUrl)"></app-display-pdf>
             </b-col>
         </b-row>
+        <b-row>
+            <b-col xs="12" sm="12" md="12">
+                <app-model-container v-if="allData" :recieveModel="modelSrc"></app-model-container>
+            </b-col>
+        </b-row>
     </b-container>
 </template>
 
 <script>
 	import DataContainer from './Data.vue'
+	import ModelContainer from './Model.vue'
 	import DisplayPdf from './DisplayPdf.vue'
 	import FileSelector from './FileSelector'
     import { mapGetters } from 'vuex'
@@ -34,6 +40,7 @@ export default {
         locale: 'getLocale',
         getParams: 'getUrlParameters',
         allData: 'getAllData',
+        modelSrc: 'getModelSrc',
     }),
 	methods: {
         ...mapMutations([
@@ -42,10 +49,11 @@ export default {
         currentUrl(url){
             //console.warn('..................', url, this.proxy)
             return `${this.proxy}/${url}`
-        }
+        },
     },
 	components: {
 		appDataContainer: DataContainer,
+		appModelContainer: ModelContainer,
 		appDisplayPdf: DisplayPdf,
 		appFileSelector: FileSelector,
 	},

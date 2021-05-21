@@ -22,6 +22,9 @@ export const messages = {
             title: 'DOCUMENTS',
             button: 'View',
         },
+        //Model
+        modelTitle: '3D Model',
+        modelFooter: '',
         // Footer
         developed: 'Developed by Siemens Energy Mexico',
         credits: 'In association with ITESM™ Campus Querétaro',
@@ -51,6 +54,9 @@ export const messages = {
             title: 'DOCUMENTOS',
             button: 'Ver',
         },
+        //Model
+        modelTitle: 'Modelo 3D',
+        modelFooter: '',
         // Footer
         developed: 'Desarrollado por Siemens Energy México',
         credits: 'En conjunto con ITESM™ Campus Querétaro',
