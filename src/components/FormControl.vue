@@ -1,7 +1,16 @@
 <template>
     <div>
         <div class="formContainer">
-            <h3>{{ $t('fg.title') }}</h3>
+            <b-form @submit="onSubmit">
+            <b-row style="padding-bottom: 2%">
+                <b-col  xs="9" sm="9" md="9">
+                    <h3>{{ $t('fg.title') }}</h3>
+                </b-col>
+                <b-col  xs="3" sm="3" md="3">
+                    <b-button variant="primary" type="submit">{{ $t('fg.submitBtn') }}</b-button>
+                </b-col>
+
+            </b-row>
 
             <b-card no-body>
                 <b-tabs pills card vertical>
@@ -24,7 +33,7 @@
                                     k != 'model' ? parseInt(k) + 1 : $t('fg.ofSim')
                                 }}:
                             </h4>
-                            <b-form @submit="onSubmit($event,index)">
+                            
                                 <b-form-group
                                     v-for="(element, tag) in v"
                                     :key="tag"
@@ -40,12 +49,13 @@
                                     ></b-form-input>
                                 </b-form-group> 
                                 <br>
-                            </b-form>
+                            
                         </div>
                         <!-- {{ item }} -->
                     </b-tab>
                 </b-tabs>
             </b-card>
+            </b-form>
         </div>
     </div>
 </template>
@@ -67,10 +77,11 @@ export default {
             return this.myFiles
         },
         validateType(type) {
-            return type.toString() == 'fileUrl' || 'src' ? 'url' : 'text'
+            return type.toString() == ('fileUrl' || 'src') ? 'url' : 'text'
         },
-        onSubmit(event, index) {
+        onSubmit(event) {
             event.preventDefault()
+            console.log('RGEJGJEIRJGIERIGEJGEIJGIAJG')
         },
         onReset(event) {
             event.preventDefault()
