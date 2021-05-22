@@ -21,10 +21,23 @@ export const messages = {
         files: {
             title: 'DOCUMENTS',
             button: 'View',
+            fileName: 'File Name',
+            fileUrl: 'File URL',
+            locale: 'File origin Language ("es" / "en")',
+            type: '3D Model',
+            src: 'Model URL',
         },
         //Model
         modelTitle: '3D Model',
         modelFooter: '',
+        //FileGenerator
+        fg: {
+            title: 'Source-file Generator',
+            submitBtn: 'Generate JSON file',
+            file: 'File ',
+            ofSim: 'of 3D Simulation',
+            addBtn: 'Add new',
+        },
         // Footer
         developed: 'Developed by Siemens Energy Mexico',
         credits: 'In association with ITESM™ Campus Querétaro',
@@ -53,10 +66,23 @@ export const messages = {
         files: {
             title: 'DOCUMENTOS',
             button: 'Ver',
+            fileName: 'Nombre de archivo',
+            fileUrl: 'URL de archivo',
+            locale: 'Idioma original del archivo ("es" / "en")',
+            type: 'Modelo 3D',
+            src: 'URL del Modelo',
         },
         //Model
         modelTitle: 'Modelo 3D',
         modelFooter: '',
+        //FileGenerator
+        fg: {
+            title: 'Generador de Archivos Fuente',
+            submitBtn: 'Generar Archivo JSON',
+            file: 'Archivo ',
+            ofSim: 'de Simulación 3D',
+            addBtn: 'Agregar nuevo',
+        },
         // Footer
         developed: 'Desarrollado por Siemens Energy México',
         credits: 'En conjunto con ITESM™ Campus Querétaro',

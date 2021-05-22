@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="formContainer">
-            <h3>CONTROL FILE GENERATOR</h3>
+            <h3>{{ $t('fg.title') }}</h3>
 
             <b-card no-body>
                 <b-tabs pills card vertical>
@@ -19,23 +19,30 @@
                             :key="k"
                         > 
                             <h4>
-                                Archivo {{ k }}:
+                                {{ $t('fg.file') }}
+                                {{
+                                    k != 'model' ? parseInt(k) + 1 : $t('fg.ofSim')
+                                }}:
                             </h4>
                             <b-form @submit="onSubmit($event,index)">
                                 <b-form-group
                                     v-for="(element, tag) in v"
                                     :key="tag"
-                                    :label="tag"
+                                    :id="tag + index"
                                 >
+                                    <label :for="tag + index"><i>{{ $t(`files.${tag}`) }}:</i></label>
                                     <b-form-input
                                         required
-                                        :placeholder="printItem(element)"
+                                        :disabled="element == 'model'"
+                                        :placeholder="element"
+                                        :value="element"
+                                        :type="validateType(tag)"
                                     ></b-form-input>
                                 </b-form-group> 
                                 <br>
                             </b-form>
                         </div>
-                        {{ item }}
+                        <!-- {{ item }} -->
                     </b-tab>
                 </b-tabs>
             </b-card>
@@ -48,15 +55,19 @@ import { files } from './../js/files'
 export default {
     data() {
         return {
+            myFiles: {
 
+            }
         }
     },
     methods: {
         getJSON() {
-            return files
+            this.myFiles = files
+            // manage Locally for the BLOB??
+            return this.myFiles
         },
-        printItem(item) {
-            return JSON.stringify(item)
+        validateType(type) {
+            return type.toString() == 'fileUrl' || 'src' ? 'url' : 'text'
         },
         onSubmit(event, index) {
             event.preventDefault()
