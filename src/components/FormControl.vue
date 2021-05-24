@@ -60,12 +60,24 @@
                             v-for="(v, k) in item"
                             :key="k"
                         > 
-                            <h4>
-                                {{ $t('fg.file') }}
-                                {{
-                                    k != 'model' ? parseInt(k) + 1 : $t('fg.ofSim')
-                                }}:
-                            </h4>
+                            <div id="file-header"><b-row>
+                                <b-col xs="7" sm="7" md="9">
+                                    <h4>
+                                        {{ $t('fg.file') }}
+                                        {{
+                                            k != 'model' ? parseInt(k) + 1 : $t('fg.ofSim')
+                                        }}:
+                                    </h4>
+                                </b-col>
+                                <b-col 
+                                    xs="5" sm="5" md="3"
+                                    style="margin: auto; margin-left: 0%"
+                                >
+                                    <b-button variant="secondary" href="#" @click="deleteDocument($event,k)">
+                                        <b-icon icon="trash" aria-hidden="true"></b-icon> {{ $t('fg.deleteFile') }}
+                                    </b-button>
+                                </b-col>
+                            </b-row></div>
                             
                                 <b-form-group
                                     v-for="(element, tag) in v"
