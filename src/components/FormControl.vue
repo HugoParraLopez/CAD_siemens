@@ -12,7 +12,7 @@
 
             </b-row>
 
-            <b-card no-body>
+            <b-card no-body :key="componentChanged">
                 <b-tabs pills card vertical>
                     <b-tab 
                         v-for="(item, index) in getJSON()"
@@ -43,15 +43,37 @@
                                     <b-form-input
                                         required
                                         :disabled="element == 'model'"
-                                        :placeholder="element"
+                                        :placeholder="createPlacehodler(tag)"
                                         :value="element"
                                         :type="validateType(tag)"
+                                        v-model="myFiles[index][k][tag]"
                                     ></b-form-input>
                                 </b-form-group> 
                                 <br>
-                            
                         </div>
-                        <!-- {{ item }} -->
+                        <div style="display: flex;">
+                            <b-button
+                                variant="success"
+                                @click="createDocument($event,index)"
+                                style="margin: auto;"
+                            >
+                                <b-icon icon="plus-square" aria-hidden="true"></b-icon>
+                                {{ $t('fg.addBtn') }}
+                            </b-button>
+                        </div>
+                        <strong>ITEM</strong>
+                        {{ item }}
+                        <br>
+                        <br>
+                        <br>
+                        <strong>TEMPORAL</strong>
+                        {{ myFiles[index] }}
+                    </b-tab>
+                    <b-tab
+                        title="<i>RR</i>"
+                        @click="addingTiles($event)"
+                    >
+                        <b-button variant="success">+</b-button>
                     </b-tab>
                 </b-tabs>
             </b-card>
@@ -62,22 +84,33 @@
 
 <script>
 import { files } from './../js/files'
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
             myFiles: {
 
-            }
+            },
+            componentChanged: 0,
         }
     },
+    computed: mapGetters({
+        getTheme: 'getTheme',
+        getLocale: 'getLocale'
+    }),
     methods: {
+        /*
+        General [Kenobi] methods for component behavior
+        */
         getJSON() {
             this.myFiles = files
-            // manage Locally for the BLOB??
+            // manage Locally to change without remorse
             return this.myFiles
         },
-        validateType(type) {
-            return type.toString() == ('fileUrl' || 'src') ? 'url' : 'text'
+        updateComponent() {
+            // ensures re-rendering after change
+            // NEEDS CALL
+            this.componentChanged += 1
         },
         onSubmit(event) {
             event.preventDefault()
@@ -85,6 +118,55 @@ export default {
         },
         onReset(event) {
             event.preventDefault()
+        },
+        
+        /* 
+        Concerning the types of fields for each document
+        */
+        validateType(type) {
+            // for input validation. "ensures" the URL structure
+            return type.toString() == ('fileUrl' || 'src') ? 'url' : 'text'
+        },
+        createPlacehodler(tag) {
+            let myPH = 'none'
+            switch (tag) {
+                case 'fileName':
+                    myPH = this.getLocale == 'es' ? 'Nombre de Archivo' : 'File Name'
+                    break;
+                case 'fileURL':
+                    myPH = this.getLocale == 'es' ? 'Dirección' : 'URL'
+                    break;
+                case 'locale':
+                    myPH = this.getLocale == 'es' ? 'Idioma' : 'Language'
+                    break;
+                default:
+                    myPH = this.getLocale == 'es' ? 'Llenar campo' : 'Fill this'
+                    break;
+            }
+            return myPH
+        },
+        /*
+        Creating and edditing thingies
+        */
+        addingTiles(event) {
+            event.preventDefault()
+            console.log('ADDIG!!')
+        },
+        createDocument(event,serialNumber) {
+            // recieves the serial number of the desired interruptor [SN]
+            // prevents from submitting or any undesirable behavior
+            event.preventDefault()
+            // console.log('New document for: ', serialNumber)
+            let nextIndex = 0
+            nextIndex = Object.keys(this.myFiles[serialNumber]).length - 1
+            console.log('New Index to append ', nextIndex)
+            this.myFiles[serialNumber][nextIndex] = {
+                fileName: '',
+                fileUrl: '',
+                locale: 'es', 
+            }
+            this.updateComponent()
+
         },
     }
 }

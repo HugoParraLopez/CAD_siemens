@@ -1,5 +1,9 @@
 export const files = {
     '84160111': {
+        model: {
+            type: 'model',
+            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968f67327ab288c1779?mode=embed',
+        },
         0: {
             fileName: 'Manual de Usuario',
             fileUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
@@ -20,22 +24,22 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Copia+de+Reporte+proyectos.pdf',
             locale: 'en',
         },
-        2: {
+        4: {
             fileName: 'Schematic',
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/03-3DTransformations.pdf',
             locale: 'en',
         },
-        2: {
+        5: {
             fileName: 'Maintenance Manual',
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/05-map-basednavigation.pdf',
             locale: 'en',
         },
-        model: {
-            type: 'model',
-            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968f67327ab288c1779?mode=embed',
-        },
     },
     '87180026': {
+        model: {
+            type: 'model',
+            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968a097f465a46da5f6?mode=embed',
+        },
         0: {
             fileName: 'Schematic 1',
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Available%2BKey%2BModifiers%2Bin%2BVueJS%2B2.pdf',
@@ -56,12 +60,12 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Propuesta+T%C3%A9cnica.pdf',
             locale: 'es',
         },
-        model: {
-            type: 'model',
-            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968a097f465a46da5f6?mode=embed',
-        },
     },
     '35124064': {
+        model: {
+            type: 'model',
+            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968ed6e47b91bf071df?mode=embed',
+        },
         0: {
             fileName: 'Manual de Usuario',
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Rutas-20202.pdf',
@@ -82,12 +86,12 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Tarea+02+-+Modelo+real+aproximado+del+OpAmp.pdf',
             locale: 'es',
         },
-        model: {
-            type: 'model',
-            src: 'https://itesm4540.autodesk360.com/shares/public/SH56a43QTfd62c1cd968ed6e47b91bf071df?mode=embed',
-        },
     },
     '87180050': {
+        model: {
+            type: 'model',
+            src: './',
+        },
         0: {
             fileName: 'Diego Ramirez Ramirez_CV',
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Diego+Ramirez+Ramirez_es-1.pdf',
@@ -98,6 +102,5 @@ export const files = {
             fileUrl: 'https://cad-siemens-energy-mx-dossier.s3.us-east-2.amazonaws.com/Diego+Ramirez+Ramirez_en-1.pdf',
             locale: 'en',
         },
-        model: '',
     },
 }
