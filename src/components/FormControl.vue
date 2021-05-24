@@ -11,34 +11,29 @@
                 </b-col>
             </b-row>
             <b-row style="padding-bottom: 2%">
-                <b-col >
-                    <label for="newSNInput">{{ $t('fg.newSN') }}</label>
+                <b-col  xs="2" sm="2" md="2">
                 </b-col>
-                <b-col >
+                <b-col  xs="3" sm="3" md="3">
+                    <label for="newSNInput">{{ $t('fg.newSN') }}</label>
                     <b-form-input
                         id="newSNInput"
                         type="text"
                         v-model="newSNFromInput"
+                        :state="validation"
                     >
                     </b-form-input>
+                    <b-form-invalid-feedback :state="validation">
+                        {{ $t('fg.validationFalse') }}
+                    </b-form-invalid-feedback>
+                    <b-form-valid-feedback :state="validation">
+                        {{ $t('fg.validationTrue') }}
+                    </b-form-valid-feedback>
                 </b-col>
-                <b-col >
-                    <b-button variant="info" @click="addNewSN">
+                <b-col  xs="7" sm="7" md="3" style="margin: auto; margin-left: 0%">
+                    <b-button variant="info" @click="addNewSN" href="#" :disabled="!validation">
                         <b-icon icon="arrow-right-square-fill"></b-icon>
                     </b-button>
                 </b-col>
-            </b-row>
-            <b-row>
-                <b-form  @submit.stop.prevent>
-                    <label for="feedback-user">User ID</label>
-                    <b-form-input v-model="newSNFromInput" :state="validation" id="feedback-user"></b-form-input>
-                    <b-form-invalid-feedback :state="validation">
-                        Your user ID must be 5-12 characters long.
-                    </b-form-invalid-feedback>
-                    <b-form-valid-feedback :state="validation">
-                        Looks Good.
-                    </b-form-valid-feedback>
-                </b-form>
             </b-row>
             <b-card no-body>
                 <b-tabs pills card vertical>
@@ -55,8 +50,8 @@
                                 </h2>
                             </b-col>
                             <b-col xs="2" sm="2" md="2">                                
-                                <b-button variant="danger">
-                                <b-icon icon="trash" aria-hidden @click="deleteSN($event,index)"></b-icon>
+                                <b-button variant="danger" href="#" @click="deleteSN($event,index)">
+                                <b-icon icon="trash" aria-hidden ></b-icon>
                             </b-button>
                             </b-col>
                         </b-row>
@@ -127,7 +122,7 @@ export default {
     },
     computed: {
         validation() {
-            return this.newSNFromInput.length > 4 && this.newSNFromInput.length < 13  
+            return this.newSNFromInput.length > 7 && this.newSNFromInput.length < 11  
         },
         ...mapGetters({
         getTheme: 'getTheme',

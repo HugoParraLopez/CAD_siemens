@@ -38,7 +38,9 @@ export const messages = {
             ofSim: 'of 3D Simulation',
             addBtn: 'Add new',
             newSN: 'Add new Serial number',
-            submitSN: 'Create new'
+            submitSN: 'Create new',
+            validationFalse: 'The new serial number must be between 8 and 10 characters long',
+            validationTrue: 'Valid serial number',
         },
         // Footer
         developed: 'Developed by Siemens Energy Mexico',
@@ -85,7 +87,9 @@ export const messages = {
             ofSim: 'de Simulación 3D',
             addBtn: 'Agregar nuevo',
             newSN: 'Agregar nuevo Número Serial: ',
-            submitSN: 'Crear nuevo'
+            submitSN: 'Crear nuevo',
+            validationFalse: 'El nuevo número serial debe contener entre 8 - 10 caracteres de largo',
+            validationTrue: 'Número serial válido',
         },
         // Footer
         developed: 'Desarrollado por Siemens Energy México',
