@@ -37,6 +37,8 @@ export const messages = {
             file: 'File ',
             ofSim: 'of 3D Simulation',
             addBtn: 'Add new',
+            newSN: 'Add new Serial number',
+            submitSN: 'Create new'
         },
         // Footer
         developed: 'Developed by Siemens Energy Mexico',
@@ -82,6 +84,8 @@ export const messages = {
             file: 'Archivo ',
             ofSim: 'de Simulación 3D',
             addBtn: 'Agregar nuevo',
+            newSN: 'Agregar nuevo Número Serial: ',
+            submitSN: 'Crear nuevo'
         },
         // Footer
         developed: 'Desarrollado por Siemens Energy México',

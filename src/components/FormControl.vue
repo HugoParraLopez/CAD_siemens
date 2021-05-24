@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="formContainer">
+        <div class="formContainer" :key="componentChanged">
             <b-form @submit="onSubmit">
             <b-row style="padding-bottom: 2%">
                 <b-col  xs="9" sm="9" md="9">
@@ -9,20 +9,58 @@
                 <b-col  xs="3" sm="3" md="3">
                     <b-button variant="primary" type="submit">{{ $t('fg.submitBtn') }}</b-button>
                 </b-col>
-
             </b-row>
-
-            <b-card no-body :key="componentChanged">
+            <b-row style="padding-bottom: 2%">
+                <b-col >
+                    <label for="newSNInput">{{ $t('fg.newSN') }}</label>
+                </b-col>
+                <b-col >
+                    <b-form-input
+                        id="newSNInput"
+                        type="text"
+                        v-model="newSNFromInput"
+                    >
+                    </b-form-input>
+                </b-col>
+                <b-col >
+                    <b-button variant="info" @click="addNewSN">
+                        <b-icon icon="arrow-right-square-fill"></b-icon>
+                    </b-button>
+                </b-col>
+            </b-row>
+            <b-row>
+                <b-form  @submit.stop.prevent>
+                    <label for="feedback-user">User ID</label>
+                    <b-form-input v-model="newSNFromInput" :state="validation" id="feedback-user"></b-form-input>
+                    <b-form-invalid-feedback :state="validation">
+                        Your user ID must be 5-12 characters long.
+                    </b-form-invalid-feedback>
+                    <b-form-valid-feedback :state="validation">
+                        Looks Good.
+                    </b-form-valid-feedback>
+                </b-form>
+            </b-row>
+            <b-card no-body>
                 <b-tabs pills card vertical>
                     <b-tab 
                         v-for="(item, index) in getJSON()"
                         :key="index"
                         :title="index"
                     >
-                        <h2>
-                            {{ $t('data.serial') }}
-                            <strong>{{ index }}</strong>
-                        </h2><br>
+                        <b-row style="display: flex;">
+                            <b-col xs="10" sm="10" md="10">                                
+                                <h2>
+                                    {{ $t('data.serial') }}
+                                    <strong>{{ index }}</strong>
+                                </h2>
+                            </b-col>
+                            <b-col xs="2" sm="2" md="2">                                
+                                <b-button variant="danger">
+                                <b-icon icon="trash" aria-hidden @click="deleteSN($event,index)"></b-icon>
+                            </b-button>
+                            </b-col>
+                        </b-row>
+                        <br>
                         <div
                             v-for="(v, k) in item"
                             :key="k"
@@ -69,12 +107,6 @@
                         <strong>TEMPORAL</strong>
                         {{ myFiles[index] }}
                     </b-tab>
-                    <b-tab
-                        title="<i>RR</i>"
-                        @click="addingTiles($event)"
-                    >
-                        <b-button variant="success">+</b-button>
-                    </b-tab>
                 </b-tabs>
             </b-card>
             </b-form>
@@ -88,19 +120,22 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            myFiles: {
-
-            },
+            myFiles: {},
             componentChanged: 0,
+            newSNFromInput: '',
         }
     },
-    computed: mapGetters({
+    computed: {
+        validation() {
+            return this.newSNFromInput.length > 4 && this.newSNFromInput.length < 13  
+        },
+        ...mapGetters({
         getTheme: 'getTheme',
         getLocale: 'getLocale'
-    }),
+    })},
     methods: {
         /*
-        General [Kenobi] methods for component behavior
+        * General [Kenobi] methods for component behavior
         */
         getJSON() {
             this.myFiles = files
@@ -121,7 +156,7 @@ export default {
         },
         
         /* 
-        Concerning the types of fields for each document
+        * Concerning the types of fields for each document
         */
         validateType(type) {
             // for input validation. "ensures" the URL structure
@@ -146,26 +181,58 @@ export default {
             return myPH
         },
         /*
-        Creating and edditing thingies
+        * Deleting Documents  and Serial Numberses precious
         */
+        deleteSN(event,sn) {
+            event.preventDefault()
+            console.log('DELETING: ', sn)
+            
+        },
+        deleteDocument(event, currentKey) {
+            event.preventDefault()
+            console.log('DELETING: ', currentKey)
+
+        },
+        /*
+        * Creating and edditing thingies
+        */
+        addNewSN(event) {
+            event.preventDefault()
+            console.log('ADDING: ', this.newSNFromInput)
+            this.validateSNasNumber().then((ans) => {
+                if (ans) {
+                    this.myFiles[this.newSNFromInput] = {}
+                    this.createDocument(event,this.newSNFromInput,true)
+                }
+            })
+        },
+        async validateSNasNumber() {
+            let aux = false
+            let rg = /^[0-9]*$/
+            aux = rg.test(this.newSNFromInput)
+            // console.warn(aux, '---------------')
+            return aux
+        },
         addingTiles(event) {
             event.preventDefault()
             console.log('ADDIG!!')
         },
-        createDocument(event,serialNumber) {
+        createDocument(event,serialNumber, firstTime = false) {
             // recieves the serial number of the desired interruptor [SN]
             // prevents from submitting or any undesirable behavior
             event.preventDefault()
             // console.log('New document for: ', serialNumber)
             let nextIndex = 0
-            nextIndex = Object.keys(this.myFiles[serialNumber]).length - 1
+            nextIndex = firstTime? 0 : Object.keys(this.myFiles[serialNumber]).length - 1
             console.log('New Index to append ', nextIndex)
             this.myFiles[serialNumber][nextIndex] = {
                 fileName: '',
                 fileUrl: '',
                 locale: 'es', 
             }
+            console.log(Object.keys(this.myFiles[serialNumber]).length - 1)
             this.updateComponent()
+            console.log('UPDATED!')
 
         },
     }
