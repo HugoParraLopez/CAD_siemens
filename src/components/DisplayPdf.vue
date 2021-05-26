@@ -11,7 +11,7 @@
 			<div
 				:class="`my-pdf-nav-bar-${getTheme}`"
 			>
-				<p>{{ currentPage }}/{{ numPages }}</p>
+				<p>{{ numPages }} {{ $t('pdfLength') }}</p>
 			</div>
 			<div class="my-pdf-overflow">
 				<pdf

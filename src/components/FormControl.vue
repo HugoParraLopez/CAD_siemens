@@ -73,7 +73,7 @@
                                     xs="5" sm="5" md="3"
                                     style="margin: auto; margin-left: 0%"
                                 >
-                                    <b-button variant="secondary" href="#" @click="deleteDocument($event,k)">
+                                    <b-button variant="secondary" href="#" @click="deleteDocument($event,k, index)">
                                         <b-icon icon="trash" aria-hidden="true"></b-icon> {{ $t('fg.deleteFile') }}
                                     </b-button>
                                 </b-col>
@@ -195,9 +195,9 @@ export default {
             console.log('DELETING: ', sn)
             
         },
-        deleteDocument(event, currentKey) {
+        deleteDocument(event, currentKey, sn) {
             event.preventDefault()
-            console.log('DELETING: ', currentKey)
+            console.log('DELETING: ', currentKey, 'from SN:', sn)
 
         },
         /*

@@ -17,6 +17,7 @@ export const messages = {
             manufacturer: 'Manufacturer: ',
             number: 'Material Number',
         },
+        pdfLength: 'Pages',
         // Files
         files: {
             title: 'DOCUMENTS',
@@ -67,6 +68,7 @@ export const messages = {
             manufacturer: 'Fabricante: ',
             number: 'Número de Material: ',
         },
+        pdfLength: 'Páginas',
         // Files
         files: {
             title: 'DOCUMENTOS',
