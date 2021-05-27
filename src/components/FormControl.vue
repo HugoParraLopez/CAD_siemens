@@ -7,7 +7,8 @@
                     <h3>{{ $t('fg.title') }}</h3>
                 </b-col>
                 <b-col  xs="3" sm="3" md="3">
-                    <b-button variant="primary" type="submit">{{ $t('fg.submitBtn') }}</b-button>
+                    <b-button variant="primary" type="submit" >{{ $t('fg.submitBtn') }}</b-button>
+                    <a id="downloadAnchorElem" style="display:none"></a>
                 </b-col>
             </b-row>
             <b-row style="padding-bottom: 2%">
@@ -36,11 +37,12 @@
                 </b-col>
             </b-row>
             <b-card no-body>
-                <b-tabs pills card vertical>
+                <b-tabs pills card vertical> 
                     <b-tab 
                         v-for="(item, index) in getJSON()"
                         :key="index"
                         :title="index"
+                        :active="index == activeSN && activeSN != ''"
                     >
                         <b-row style="display: flex;">
                             <b-col xs="10" sm="10" md="10">                                
@@ -130,6 +132,7 @@ export default {
             myFiles: {},
             componentChanged: 0,
             newSNFromInput: '',
+            activeSN: '',
         }
     },
     computed: {
@@ -156,6 +159,11 @@ export default {
         },
         onSubmit(event) {
             event.preventDefault()
+            let dataString = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.myFiles))
+            let dlAnchorElem = document.getElementById('downloadAnchorElem')
+            dlAnchorElem.setAttribute("href",     dataString     );
+            dlAnchorElem.setAttribute("download", "myObjData.json");
+            dlAnchorElem.click();
             console.log('RGEJGJEIRJGIERIGEJGEIJGIAJG')
         },
         onReset(event) {
@@ -165,8 +173,8 @@ export default {
         /* 
         * Concerning the types of fields for each document
         */
-        validateType(type) {
-            // for input validation. "ensures" the URL structure
+       validateType(type) {
+           // for input validation. "ensures" the URL structure
             return type.toString() == ('fileUrl' || 'src') ? 'url' : 'text'
         },
         createPlacehodler(tag) {
@@ -190,14 +198,30 @@ export default {
         /*
         * Deleting Documents  and Serial Numberses precious
         */
-        deleteSN(event,sn) {
-            event.preventDefault()
+       deleteSN(event,sn) {
+           event.preventDefault()
             console.log('DELETING: ', sn)
+            delete this.myFiles[sn]
+            this.updateComponent()
             
         },
         deleteDocument(event, currentKey, sn) {
             event.preventDefault()
             console.log('DELETING: ', currentKey, 'from SN:', sn)
+            // delete file
+            delete this.myFiles[sn][`${currentKey}`]
+            let auxObj = {}
+            let i = 0
+            for ([k,v] of Object.entries(this.myFiles[sn])) {
+                if (k != 'model') {
+                    auxObj[i] = v
+                    i++
+                } else {
+                    auxObj[k] = v
+                }
+            }
+            this.myFiles[sn] = auxObj
+            this.updateComponent()
 
         },
         /*
@@ -228,16 +252,28 @@ export default {
             // recieves the serial number of the desired interruptor [SN]
             // prevents from submitting or any undesirable behavior
             event.preventDefault()
+            this.activeSN = serialNumber
             // console.log('New document for: ', serialNumber)
-            let nextIndex = 0
-            nextIndex = firstTime? 0 : Object.keys(this.myFiles[serialNumber]).length - 1
-            console.log('New Index to append ', nextIndex)
-            this.myFiles[serialNumber][nextIndex] = {
+            if (firstTime) {
+                this.myFiles[serialNumber]['model'] = {
+                type: 'model',
+                src: '',
+            }
+            this.myFiles[serialNumber][`0`] = {
                 fileName: '',
                 fileUrl: '',
                 locale: 'es', 
             }
-            console.log(Object.keys(this.myFiles[serialNumber]).length - 1)
+            } else {
+                let nextIndex = Object.keys(this.myFiles[serialNumber]).length -1
+                console.log('New Index to append ', nextIndex)
+                this.myFiles[serialNumber][nextIndex] = {
+                    fileName: '',
+                    fileUrl: '',
+                    locale: 'es', 
+                }
+                //console.log(Object.keys(this.myFiles[serialNumber]).length - 1)
+            }
             this.updateComponent()
             console.log('UPDATED!')
 
