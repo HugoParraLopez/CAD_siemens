@@ -1,11 +1,14 @@
 <template>
     <div :class="`my-card-${getTheme}`">
         <h2>{{ $t('data.title') }}</h2> <br>
-        <p>{{ $t('data.serial') }}<strong>{{ serialNumber }}</strong></p>
-        <p>{{ $t('data.year') }}<strong>{{ year }}</strong></p>
-        <p>{{ $t('data.factory') }}<strong>{{ factory }}</strong></p>
-        <p>{{ $t('data.manufacturer') }}<strong>{{ manufacturer }}</strong></p>
-        <p>{{ $t('data.number') }}<strong>{{ materialNumber }}</strong></p>
+        <ul>
+            <p>{{ $t('data.serial') }}<strong>{{ serialNumber }}</strong></p>
+            <p>{{ $t('data.year') }}<strong>{{ year }}</strong></p>
+            <p>{{ $t('data.factory') }}<strong>{{ factory }}</strong></p>
+            <p>{{ $t('data.manufacturer') }}<strong>{{ manufacturer }}</strong></p>
+            <p>{{ $t('data.number') }}<strong>{{ materialNumber }}</strong></p>
+
+        </ul>
         
     </div>
 </template>

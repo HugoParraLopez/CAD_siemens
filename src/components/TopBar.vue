@@ -9,7 +9,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item-dropdown right @change="changeLocale">
                         <template #button-content>
-                            <b-icon icon="globe2"></b-icon> {{ $t('language') }}
+                            <span><language-icon/></span> {{ $t('language') }}
                         </template>
                         <b-dropdown-item :active="isEnglish" @click="changeLocale('en')">EN</b-dropdown-item>
                         <b-dropdown-item :active="!isEnglish" @click="changeLocale('es')">ES</b-dropdown-item>
@@ -17,7 +17,7 @@
 
                     <b-nav-item-dropdown right >
                         <template #button-content>
-                            <b-icon icon="globe2"></b-icon> {{ $t('theme') }}                            
+                            <span><language-icon/></span> {{ $t('theme') }}                            
                         </template>
                         <b-dropdown-item :active="isLight" @click="setTheme('light')">{{$t('themeLight')}}</b-dropdown-item>
                         <b-dropdown-item :active="!isLight" @click="setTheme('dark')">{{$t('themeDark')}}</b-dropdown-item>
@@ -31,6 +31,7 @@
 
 <script>
 import siemensLogo from './SiemensLogo'
+import languageIcon from './icons/Language'
 import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 export default {
@@ -40,7 +41,8 @@ export default {
         }
     },
     components: {
-        siemensLogo: siemensLogo
+        siemensLogo: siemensLogo,
+        languageIcon: languageIcon,
     },
     methods: {
         ...mapMutations([
@@ -67,9 +69,14 @@ export default {
     padding-top: 20px;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-bottom: 30px;
+    padding-bottom: 0px;
+    background-image: url("../assets/img/SE_Dot-Sphere_RGB_Type_1.png");
 }
-
+.brand-logo {
+    width: 8rem;
+    margin-left: 8rem;
+    padding-bottom: none;
+}
 @media only screen and (max-width: 600px) {
     .my-nav {
         padding-top: 10px;
@@ -77,12 +84,11 @@ export default {
         padding-bottom: 20px;
     }
     .brand-logo {
-        width: 60%
+        padding-bottom: 0px;
     }
 }
 span#logo {
-    width: 50%;
+    width: 16%;
     height: 100%;
-    margin-left: 2%;
 }
 </style>

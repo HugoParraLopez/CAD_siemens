@@ -6,12 +6,20 @@
             </b-col>
             <b-col class="item-link">
                 <b-button
+                    style="margin-bottom: 0.5rem"
                     :disabled="!allData"
                     size="sm"
                     :class="`btn-se-main-${getTheme}`"
                     @click="deployPdf(fileUrl, fileName)"
                     href="#my-pdf-viewer">
                     <b-icon icon="eye-fill" aria-hidden="true"></b-icon> {{ $t('files.button') }}
+                </b-button>
+                <b-button :class="`btn-se-main-${getTheme}`">
+                    <a
+                    style="margin-bottom: 0.5rem; font-size: 12px"
+                    @click="setDownloadUrl($event,fileUrl, fileName)"
+                    >
+                    <b-icon icon="download" aria-hidden="true"></b-icon></a>
                 </b-button>
             </b-col>
         </b-row>
@@ -66,6 +74,14 @@ export default {
             // this.setIsLoaded(false,name)
             // console.error('After', this.isLoaded)
         },
+        setDownloadUrl(event,url, filename) {
+            event.preventDefault()
+            window.open(url)
+            // event.target.setAttribute("href", url)
+            // event.target.setAttribute("download", filename+".pdf")
+            // event.target.click()
+            //console.log(event.target, url)
+        }
     },
     computed: mapGetters({
         allData: 'getAllData',
@@ -77,15 +93,19 @@ export default {
 
 <style scoped>
 .item-card-light {
-    background-color: #755da8;
-    color: white;
-    border-radius: 12px;
-	border: 3px solid #00D9C7;
+    color: black;
+	background-color: #FFFFFF;
+	border: 1.2px solid #E2E2E2;
     align-items: center;
     margin: auto;
     margin-top: 4%;
     padding-top: 2%;
-
+}
+.item-card-light:hover {
+    /* cursor: pointer; */
+    box-shadow: 0px 2px 25px rgba(27,23,52,0.2), 0px 0px 1px rgba(27,23,52,0.2);
+    -webkit-box-shadow: 0px 2px 25px rgba(27,23,52,0.2), 0px 0px 1px rgba(27,23,52,0.2);
+    -moz-box-shadow: 0px 2px 25px rgba(27,23,52,0.2), 0px 0px 1px rgba(27,23,52,0.2);
 }
 .item-card-dark {
     background-color: #5E4B87;
@@ -97,6 +117,11 @@ export default {
     margin-top: 4%;
     padding-top: 2%;
 
+}
+.item-card-dark:hover {
+    -webkit-box-shadow: 0px 0px 30px 1px rgba(71, 71, 71, 0.8);
+    -moz-box-shadow: 0px 0px 30px 1px rgba(71, 71, 71, 0.8);
+    box-shadow: 0px 0px 30px 1px rgba(71, 71, 71, 0.8);
 }
 
 .item-title {

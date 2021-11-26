@@ -8,7 +8,7 @@ export const routes = [{
         component: Main,
     },
     {
-        path: '/quickpanel',
+        path: '/panel',
         name: 'cp',
         component: FormControl,
     },

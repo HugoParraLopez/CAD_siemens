@@ -22,6 +22,7 @@ export const messages = {
         files: {
             title: 'DOCUMENTS',
             button: 'View',
+            download: 'Download',
             fileName: 'File Name',
             fileUrl: 'File URL',
             locale: 'File origin Language ("es" / "en")',
@@ -32,6 +33,13 @@ export const messages = {
         modelTitle: '3D Model',
         modelFooter: '',
         //FileGenerator
+        login: {
+            submitBtn: 'Login',
+            user: 'Username',
+            password: 'Password',
+            invalidCredentials: 'Invalid Credentials. Please verify.',
+
+        },
         fg: {
             title: 'Source-file Generator',
             submitBtn: 'Generate JSON file',
@@ -73,6 +81,7 @@ export const messages = {
         files: {
             title: 'DOCUMENTOS',
             button: 'Ver',
+            download: 'Descargar',
             fileName: 'Nombre de archivo',
             fileUrl: 'URL de archivo',
             locale: 'Idioma original del archivo ("es" / "en")',
@@ -83,6 +92,13 @@ export const messages = {
         modelTitle: 'Modelo 3D',
         modelFooter: '',
         //FileGenerator
+        login: {
+            submitBtn: 'Login',
+            user: 'Usuario',
+            password: 'Contraseña',
+            invalidCredentials: 'Datos inválidos. Verifica y vuelve a intentarlo.',
+
+        },
         fg: {
             title: 'Generador de Archivos Fuente',
             submitBtn: 'Generar Archivo JSON',

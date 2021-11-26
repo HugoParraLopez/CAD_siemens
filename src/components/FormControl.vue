@@ -1,6 +1,34 @@
 <template>
     <div>
-        <div class="formContainer" :key="componentChanged">
+        <div class="formContainer" v-if="!isLogin">
+            <b-form id="login" @submit="localLogin">
+                <h2 v-if="showInvalid">
+                    {{ $t('login.invalidCredentials') }}
+                </h2>
+                <b-row>
+                    <b-col  xs="12" sm="12" md="7">
+                        <label for="username"> {{ $t('login.user') }} </label>
+                        <b-form-input
+                            id="username"
+                            type="text"
+                            v-model="username"
+                        >
+                        </b-form-input>
+                    </b-col>
+                    <b-col  xs="12" sm="12" md="7" style="padding-bottom: 2%">
+                        <label for="password"> {{ $t('login.password') }} </label>
+                        <b-form-input
+                            id="password"
+                            type="password"
+                            v-model="password"
+                        >
+                        </b-form-input>
+                    </b-col>
+                </b-row>
+                <b-button variant="primary" type="submit" >{{ $t('login.submitBtn') }}</b-button>
+            </b-form>
+        </div>
+        <div v-else class="formContainer" :key="componentChanged">
             <b-form @submit="onSubmit">
             <b-row style="padding-bottom: 2%">
                 <b-col  xs="9" sm="9" md="9">
@@ -16,6 +44,11 @@
                 </b-col>
                 <b-col  xs="3" sm="3" md="3">
                     <label for="newSNInput">{{ $t('fg.newSN') }}</label>
+                    <!--
+                    @slot Menu Item footer
+                        @binding {bool} validation verrifies that the Serial Number is within range
+                        @binding {string} text text of the menu item
+                    -->
                     <b-form-input
                         id="newSNInput"
                         type="text"
@@ -130,9 +163,18 @@ export default {
     data() {
         return {
             myFiles: {},
+            isLogin: false,
+            showInvalid: false,
             componentChanged: 0,
-            newSNFromInput: '',
             activeSN: '',
+            /**
+             * @model
+             */
+            newSNFromInput: '',
+            KU: 'admin',
+            KP: 'admin',
+            username: '',
+            password: ''
         }
     },
     computed: {
@@ -151,6 +193,18 @@ export default {
             this.myFiles = files
             // manage Locally to change without remorse
             return this.myFiles
+        },
+        localLogin(event) {
+            if (this.username === this.KU) {
+                if (this.password === this.KP) {
+                    this.isLogin = true
+                    this.showInvalid = false
+                } else {
+                    this.showInvalid = true
+                }
+            } else {
+                this.showInvalid = true
+            }
         },
         updateComponent() {
             // ensures re-rendering after change

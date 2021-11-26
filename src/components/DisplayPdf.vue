@@ -8,6 +8,9 @@
             v-if="getPdfName != undefined"
 			id="my-pdf-loader"
 		>
+			<!-- <object :data="url" type="application/pdf">
+				<iframe src="https://docs.google.com/viewer?url=https://gentle-castle-93152.herokuapp.com/https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf&embedded=true"></iframe>
+			</object> -->
 			<div
 				:class="`my-pdf-nav-bar-${getTheme}`"
 			>
