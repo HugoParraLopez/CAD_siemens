@@ -47,16 +47,6 @@ export default {
                                 hexColor2: '#2A9015',
                                 value: `${this.materialNumber}`,
                             },
-                            2: {
-                                hexColor: '#ff8547',
-                                hexColor2: '#B15C31',
-                                value: `${this.factory}`,
-                            },
-                            3: {
-                                hexColor: '#1468DF',
-                                hexColor2: '#246CB5',
-                                value: `${this.manufacturer}`,
-                            },
                         }
                     })
                 }

@@ -5,22 +5,24 @@
                 <em>{{ fileName }}</em>
             </b-col>
             <b-col class="item-link">
-                <b-button
-                    style="margin-bottom: 0.5rem"
+                <button
                     :disabled="!allData"
                     size="sm"
-                    :class="`btn-se-main-${getTheme}`"
+                    :class="`btn-se-action-${getTheme}`"
                     @click="deployPdf(fileUrl, fileName)"
-                    href="#my-pdf-viewer">
-                    <b-icon icon="eye-fill" aria-hidden="true"></b-icon> {{ $t('files.button') }}
-                </b-button>
-                <b-button :class="`btn-se-main-${getTheme}`">
-                    <a
-                    style="margin-bottom: 0.5rem; font-size: 12px"
+                    href="">
+                        <span><document-icon/></span>
+                </button>
+                <a 
                     @click="setDownloadUrl($event,fileUrl, fileName)"
-                    >
-                    <b-icon icon="download" aria-hidden="true"></b-icon></a>
-                </b-button>
+                    v-if="allData">
+                    <button
+                        size="sm"
+                        :class="`btn-se-action-${getTheme}`"
+                        @click="preventBtn($event)">
+                            <span><download-icon/></span>
+                    </button>
+                </a>
             </b-col>
         </b-row>
         <b-row class="item-tags">
@@ -29,22 +31,24 @@
                 v-for="(item, index) in tags"
                 v-if="item.value != '--'"
                 :key="index"
-                :style="`
-                    margin-right: 3px;
-                    color: ${getTheme == 'light' ? item.hexColor2 : item.hexColor};
-                    background-color: ${getTheme == 'light' ? '#BBB' : '#888'};
-                    `"
+                class="badge-default"
                 >{{item.value}}</b-badge>
         </b-row>
     </b-col>
 </template>
 
 <script>
+import documentIcon from './icons/Document.vue'
+import downloadIcon from './icons/Download.vue'
 import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 export default {
     setup() {
         
+    },
+    components: {
+        documentIcon: documentIcon,
+        downloadIcon: downloadIcon,
     },
     props: {
         fileName: {
@@ -74,6 +78,9 @@ export default {
             // this.setIsLoaded(false,name)
             // console.error('After', this.isLoaded)
         },
+        checkAllData () {
+            return this.allData
+        },
         setDownloadUrl(event,url, filename) {
             event.preventDefault()
             window.open(url)
@@ -81,6 +88,9 @@ export default {
             // event.target.setAttribute("download", filename+".pdf")
             // event.target.click()
             //console.log(event.target, url)
+        },
+        preventBtn(event) {
+            event.preventDefault()
         }
     },
     computed: mapGetters({
@@ -132,6 +142,9 @@ export default {
 .item-link {
     align-self: center;
     text-align: end;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
 }
 
 .item-tags {
@@ -154,4 +167,34 @@ export default {
     text-align: center;
     vertical-align: middle;
 }
+
+.badge-default {
+    
+    margin-right: 5px;
+    color: #a54bf7;
+    background-color: white;
+    border: .5px solid #a54bf7;
+    border-radius: 12px;
+                    
+}
+
+.btn-se-action-light {
+    background-color: #4d217a!important;
+    border-radius: 30px;
+    padding: 5px 5px;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn-se-action-light:hover {
+    background-color: #641e8c!important;
+    border-radius: 30px;
+    padding: 5px 5px;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}
+
 </style>

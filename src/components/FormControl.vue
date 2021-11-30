@@ -7,7 +7,7 @@
                 </h2>
                 <b-row>
                     <b-col  xs="12" sm="12" md="7">
-                        <label for="username"> {{ $t('login.user') }} </label>
+                        <label for="username"> <strong>{{ $t('login.user') }}</strong> </label>
                         <b-form-input
                             id="username"
                             type="text"
@@ -16,7 +16,7 @@
                         </b-form-input>
                     </b-col>
                     <b-col  xs="12" sm="12" md="7" style="padding-bottom: 2%">
-                        <label for="password"> {{ $t('login.password') }} </label>
+                        <label for="password"> <strong>{{ $t('login.password') }}</strong> </label>
                         <b-form-input
                             id="password"
                             type="password"
@@ -25,19 +25,22 @@
                         </b-form-input>
                     </b-col>
                 </b-row>
-                <b-button variant="primary" type="submit" >{{ $t('login.submitBtn') }}</b-button>
+                <button class="btn-se-main-login" type="submit" >
+                    <span><arrow-right-icon :iconColor="'#101'"/></span>
+                    {{ $t('login.submitBtn') }}
+                </button>
             </b-form>
         </div>
         <div v-else class="formContainer" :key="componentChanged">
             <b-form @submit="onSubmit">
             <b-row style="padding-bottom: 2%">
                 <b-col  xs="9" sm="9" md="9">
-                    <h3>{{ $t('fg.title') }}</h3>
+                    <h3> Panel de Control</h3>
                 </b-col>
-                <b-col  xs="3" sm="3" md="3">
-                    <b-button variant="primary" type="submit" >{{ $t('fg.submitBtn') }}</b-button>
+                <!-- <b-col  xs="3" sm="3" md="3">
+                    <b-button class="btn-se-main-login" type="submit" >{{ $t('fg.submitBtn') }}</b-button>
                     <a id="downloadAnchorElem" style="display:none"></a>
-                </b-col>
+                </b-col> -->
             </b-row>
             <b-row style="padding-bottom: 2%">
                 <b-col  xs="2" sm="2" md="2">
@@ -64,14 +67,15 @@
                     </b-form-valid-feedback>
                 </b-col>
                 <b-col  xs="7" sm="7" md="3" style="margin: auto; margin-left: 0%">
-                    <b-button variant="info" @click="addNewSN" href="#" :disabled="!validation">
+                    <b-button class="btn-se-main-login" @click="addNewSN" href="" :disabled="!validation">
                         <b-icon icon="arrow-right-square-fill"></b-icon>
                     </b-button>
                 </b-col>
             </b-row>
             <b-card no-body>
-                <b-tabs pills card vertical> 
+                <b-tabs pills card horizontal> 
                     <b-tab 
+                        class="my-tab"
                         v-for="(item, index) in getJSON()"
                         :key="index"
                         :title="index"
@@ -157,6 +161,7 @@
 </template>
 
 <script>
+import arrowRightIcon from './icons/ArrowRight.vue'
 import { files } from './../js/files'
 import { mapGetters } from 'vuex'
 export default {
@@ -176,6 +181,9 @@ export default {
             username: '',
             password: ''
         }
+    },
+    components: {
+        arrowRightIcon: arrowRightIcon,
     },
     computed: {
         validation() {
@@ -347,6 +355,43 @@ export default {
     .formContainer {
         padding: 12% 5%
     }
+}
+
+.btn-se-main-login {
+    background-color: #FFF;
+    border: none;
+    border-radius: 30px;
+    font-family: 'SiemensSansBold';
+    padding: 12px 30px;
+    color: #101;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-se-main-login:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 80%);
+    color: #101;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: 'SiemensSansBold';
+    padding: 12px 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+li a {
+    color: red !important;
+}
+li a:hover {
+    color: pink !important;
+}
+.nav-pills .nav-link.active {
+    color: #FFF !important;
+    background-color: #a54bf7 !important;
+}
+.my-tab {
+
 }
 
 </style>

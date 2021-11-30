@@ -1,6 +1,7 @@
 <template>
     <div :class="`my-card-${getTheme}`">
-        <h2>{{ $t('data.title') }}</h2> <br>
+        <div class="margin-animation">
+                <h2>{{ $t('data.title') }}</h2> <br>
         <ul>
             <p>{{ $t('data.serial') }}<strong>{{ serialNumber }}</strong></p>
             <p>{{ $t('data.year') }}<strong>{{ year }}</strong></p>
@@ -9,7 +10,7 @@
             <p>{{ $t('data.number') }}<strong>{{ materialNumber }}</strong></p>
 
         </ul>
-        
+        </div>
     </div>
 </template>
 

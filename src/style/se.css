@@ -1,3 +1,80 @@
+/*Siemens Energy Stylesheet for Vue.js applications*/
+
+
+/*Created by DiegoRz according to Siemens Enery's own branding*/
+
+
+/**********************************
+* General Font imports
+
+* Can be asigned within any <style> tag
+* Regardless if global or scoped 
+***********************************/
+
+@font-face {
+    font-family: "SiemensSans";
+    src: local("SiemensSans"), url('./../assets/fonts/SiemensSans_Global_Roman.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "SiemensSansItalic";
+    src: local("SiemensSansItalic"), url('./../assets/fonts/SiemensSans_Global_Italic.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "SiemensSansBold";
+    src: local("SiemensSansBold"), url('./../assets/fonts/SiemensSans_Global_Bold.ttf') format("truetype");
+}
+
+
+/**********************************
+* General Configurations
+
+* Made on specific blobal tags,
+* Most are !important to overwrite the defaults
+***********************************/
+
+body {
+    font-family: 'SiemensSans' !important;
+}
+
+strong {
+    font-family: 'SiemensSansBold' !important;
+}
+
+em {
+    font-family: 'SiemensSansItalic' !important;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: normal;
+    font-family: 'SiemensSansBold' !important;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+a {
+    color: #42b983;
+}
+
+
+/**********************************
+* Global Buttons
+
+* Compelling with the color pallete of Siemens Energy
+* Added hover effects for dynamism in the site
+***********************************/
+
 .btn-se-main-light {
     background-color: #38206A;
     outline-color: #271058;
@@ -29,9 +106,6 @@
     text-align: center;
     vertical-align: middle;
 }
-
-
-/* Now the dak version*/
 
 .btn-se-main-dark {
     background-color: #241545;
@@ -95,7 +169,7 @@
     right: 14.88%;
     top: calc(50% - 22px/2);
     /* Typography Large/Button Text/Siemens Sans Bold */
-    font-family: SiemensSans;
+    font-family: 'SiemensSans';
     font-size: 22px;
     line-height: 22px;
     /* identical to box height, or 100% */
